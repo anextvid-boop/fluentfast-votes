@@ -570,6 +570,88 @@ footer {
   font-style: italic;
 }
 
+/* Accordion Sections */
+.accordion {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.accordion:last-of-type {
+  border-bottom: none;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 1.2rem 0;
+  transition: opacity 0.3s ease;
+  user-select: none;
+}
+
+.accordion-header:hover {
+  opacity: 0.7;
+}
+
+.accordion-header h3 {
+  margin-bottom: 0 !important;
+}
+
+.accordion-icon {
+  color: var(--brand-light);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion.active .accordion-content {
+  max-height: 400px;
+  opacity: 1;
+  padding-bottom: 1.5rem;
+}
+
+/* Fast Close Button */
+.fast-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin: 3rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fast-close-btn:hover {
+  background: var(--brand-light);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--brand-glow);
+  border-color: var(--brand-light);
+}
+
+.fast-close-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
 /* Tier Grid */
 .tiers-container {
   display: flex;
