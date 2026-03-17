@@ -1,0 +1,6 @@
+spawn npx -y surge --project dist --domain fluentfast-investor-portal-anextvid.surge.sh
+expect "email:"
+send "anextvid-fluent@fluentfast.com\r"
+expect "password:"
+send "FluentFast2026!\r"
+expect eof
