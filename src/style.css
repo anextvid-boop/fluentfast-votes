@@ -1444,3 +1444,75 @@ textarea:focus {
     width: 100%;
   }
 }
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--royal-blue); /* Updated from WhatsApp green to match brand */
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(89, 86, 214, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  color: #fff;
+  z-index: 9999;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: floatBounce 3s ease-in-out infinite;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.floating-whatsapp svg {
+  width: 24px;
+  height: 24px;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-8px) scale(1.03);
+  background: var(--brand-light); /* Matching brand hover state */
+  box-shadow: 0 15px 40px rgba(104, 101, 240, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  animation-play-state: paused;
+}
+
+.floating-whatsapp:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes floatBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-whatsapp {
+    bottom: 2.5rem; /* Raised to prevent iOS Safari bottom bar overlap */
+    right: 1.5rem;
+    width: 65px;
+    height: 65px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  
+  .floating-whatsapp span {
+    display: none; /* Hide text on mobile to save screen space */
+  }
+
+  .floating-whatsapp svg {
+    width: 32px;
+    height: 32px;
+  }
+}
