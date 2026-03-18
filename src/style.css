@@ -1516,3 +1516,131 @@ textarea:focus {
     height: 32px;
   }
 }
+
+/* Modal Overlay & Modal Content */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  /* iOS safe fallback */
+  height: -webkit-fill-available;
+  background: rgba(15, 18, 37, 0.85); /* deep-navy slightly transparent */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Safe hiding mechanism that doesn't break iOS transitions */
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.modal-overlay.hidden {
+  display: none !important;
+}
+
+.modal-overlay .modal-content {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  border-radius: 40px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Required for iOS smooth scrolling */
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 2.5rem 2rem;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.close-modal-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+.close-modal-btn:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    height: 100%;
+    padding: 0;
+  }
+
+  .modal-overlay .modal-content {
+    padding: 2rem 1.25rem 4rem; /* large bottom padding so the button is never cut off by iOS safe zones */
+    border-radius: 24px 24px 0 0; /* Make it look like a bottom sheet or nicer card */
+    max-height: 95vh;
+    width: 100%;
+    margin-top: auto; /* Push down */
+    transform: translateY(100%);
+  }
+
+  .modal-overlay.active .modal-content {
+    transform: translateY(0);
+  }
+
+  .form-header h2 {
+    font-size: 1.6rem !important; /* Scale down heading */
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .koala-form-guide {
+    width: 60px !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  .close-modal-btn {
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .split-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+}
