@@ -233,7 +233,7 @@
           </ul>
         </div>
 
-        <a href="https://gofund.me/815cb2b60" target="_blank" class="invest-button pulse-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">GOFUNDME</a>
+        <button class="invest-button pulse-btn open-invest-modal" data-stripe="https://gofund.me/815cb2b60">GOFUNDME</button>
       </div>
 
       <!-- 10,000 Tier -->
@@ -545,7 +545,14 @@
         submitBtn.style.opacity = '1';
 
         setTimeout(() => {
-          alert('Interest registered! We will contact you soon.');
+          const selectedAmount = document.getElementById('amount').value;
+          
+          if (selectedAmount === 'gofundme') {
+            window.location.href = 'https://gofund.me/815cb2b60';
+          } else {
+            alert('Interest registered! We will contact you soon.');
+          }
+          
           investorForm.reset();
 
           // Return to original state
@@ -558,7 +565,9 @@
           toggleBtn.classList.remove('active');
           toggleBtn.querySelector('span').innerText = 'Register Interest';
 
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (selectedAmount !== 'gofundme') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
         }, 2000);
       }, 1500);
     });
