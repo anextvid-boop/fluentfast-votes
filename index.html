@@ -126,6 +126,23 @@
         </div>
       </div>
 
+      <div class="message-section accordion">
+        <div class="accordion-header">
+          <h3>Equity & Larger Sums</h3>
+          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <div style="font-size: 0.95rem; margin-top: 0.5rem; color: #ffffff; background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); line-height: 1.6; text-align: left;">
+            <p style="margin-bottom: 0.75rem;">I'm not exactly sure about percentages or anything similar at this exact moment. I need moving around money.</p>
+            <p style="margin-bottom: 0.75rem;">I can't do anything at the moment—barely got a penny for software, rent, food, or anything in between. But I need to move and fix things up.</p>
+            <p style="margin-bottom: 0;">I just need to see who's supporting me.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="message-section isolate-quote accordion">
         <div class="accordion-header">
           <h3>The Founder's Grit</h3>
@@ -410,6 +427,13 @@
         <img src="/koala_happy.png" loading="lazy" class="koala-form-guide" alt="Happy Koala">
         <h2 id="modalTierTitle">Secure Allocation</h2>
         <p>Please provide your details before proceeding to payment.</p>
+        
+        <div style="font-size: 0.95rem; margin-top: 1rem; color: #ffffff; background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); line-height: 1.6; text-align: left;">
+          <strong style="display: block; margin-bottom: 0.5rem; color: #ffffff; font-size: 1.05rem;">On Equity & Larger Sums:</strong>
+          <p style="margin-bottom: 0.75rem;">I'm not exactly sure about percentages or anything similar at this exact moment. I need moving around money.</p>
+          <p style="margin-bottom: 0.75rem;">I can't do anything at the moment—barely got a penny for software, rent, food, or anything in between. But I need to move and fix things up.</p>
+          <p style="margin-bottom: 0;">I just need to see who's supporting me.</p>
+        </div>
       </div>
 
       <form class="interest-form" id="investFlowForm">
@@ -668,60 +692,4 @@
     });
   </script>
 </body>
-
-  <!-- Investment Details Modal -->
-  <div id="investModalOverlay" class="modal-overlay hidden">
-    <div class="modal-content form-section">
-      <button id="closeInvestModal" class="close-modal-btn" aria-label="Close modal">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
-      
-      <div class="form-header">
-        <img src="/koala_happy.png" loading="lazy" class="koala-form-guide" alt="Happy Koala">
-        <h2 id="modalTierTitle">Secure Allocation</h2>
-        <p>Please provide your details before proceeding to payment.</p>
-      </div>
-
-      <form class="interest-form" id="investFlowForm">
-        <div class="form-group checkbox-group" style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); grid-column: span 2;">
-          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; justify-content: center; font-weight: 700; color: var(--brand-light); flex-wrap: wrap; text-align: center;">
-            <input type="checkbox" id="anonymousDonationMode" name="anonymous" style="width: 20px; height: 20px; accent-color: var(--brand-light);">
-            Make this an anonymous investment/donation
-          </label>
-        </div>
-
-        <div id="investorRequiredFields" style="transition: all 0.3s ease; display: contents;">
-          <div class="form-group">
-            <label for="flowFirstName">First Name</label>
-            <input type="text" id="flowFirstName" name="firstName" placeholder="John" required>
-          </div>
-          <div class="form-group">
-            <label for="flowLastName">Last Name</label>
-            <input type="text" id="flowLastName" name="lastName" placeholder="Doe" required>
-          </div>
-
-          <div class="form-group">
-            <label for="flowEmail">Email Address</label>
-            <input type="email" id="flowEmail" name="email" placeholder="john@example.com" required>
-          </div>
-          <div class="form-group">
-            <label for="flowPhone">Phone Number</label>
-            <input type="tel" id="flowPhone" name="phone" placeholder="+44 7000 000000" required>
-          </div>
-
-          <div class="form-group full-width">
-            <label for="flowContact">Best way to contact</label>
-            <select id="flowContact" name="contact" required>
-              <option value="" disabled selected>Select method</option>
-              <option value="email">Email</option>
-              <option value="phone">Phone Call</option>
-              <option value="whatsapp">WhatsApp</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="submit-button pulse-btn" id="flowSubmitBtn">PROCEED TO PAYMENT</button>
-      </form>
-    </div>
-  </div>
 </html>
