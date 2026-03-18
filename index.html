@@ -195,6 +195,7 @@
             <option value="10000">£10,000 (Seed)</option>
             <option value="25000">£25,000 (Growth)</option>
             <option value="50000">£50,000 (Velocity)</option>
+            <option value="gofundme">GoFundMe (Any Amount)</option>
             <option value="other">Other Amount</option>
           </select>
         </div>
@@ -210,6 +211,31 @@
     </section>
 
     <div class="tiers-container">
+      <!-- GoFundMe Tier -->
+      <div class="tier-card" id="tierGoFundMe">
+        <div class="tier-name">GoFundMe</div>
+        <div class="tier-price" style="font-size: 2.2rem;">ANY NUMBER</div>
+
+        <button class="tier-expand-btn">
+          <span>DETAILS</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <div class="tier-details">
+          <div class="theme-box theme-learn">SUPPORT</div>
+          <ul class="execution-list">
+            <li>Any amount to support the vision.</li>
+            <li>Fuel for living expenses and momentum.</li>
+            <li>Help us run and go faster.</li>
+          </ul>
+        </div>
+
+        <a href="https://gofund.me/815cb2b60" target="_blank" class="invest-button pulse-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">GOFUNDME</a>
+      </div>
+
       <!-- 10,000 Tier -->
       <div class="tier-card" id="tierSeed">
         <div class="tier-name">Seed</div>
