@@ -43,7 +43,7 @@ body {
   left: 0;
   width: 100%;
   height: 200vh; /* Extended well below fold to prevent clipping on long scrolls */
-  background: linear-gradient(rgba(89, 86, 214, 0.85), rgba(15, 18, 37, 0.95)), url('/brand1.jpg');
+  background: linear-gradient(rgba(89, 86, 214, 0.85), rgba(15, 18, 37, 0.95)), url('../public/brand1.jpg');
   background-size: cover;
   background-position: center;
   z-index: -2;

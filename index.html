@@ -6,7 +6,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INVESTOR | FluentFast</title>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="./src/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         <div class="brand-motivation">"YOU GOT THIS, YOU UNIT"</div>
 
         <div class="hero-brand-image">
-          <img src="/brand3.jpg" fetchpriority="high" alt="Brand visual" class="center-image">
+          <img src="./public/brand3.jpg" fetchpriority="high" alt="Brand visual" class="center-image">
         </div>
       </div>
 
@@ -37,8 +38,8 @@
         <span class="word-group">TOGETHER.</span>
       </h1>
 
-      <div class="header-lottie-container">
-        <lottie-player src="/Koalas_flying.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      <div id="hero-lottie" class="header-lottie-container floating">
+        <!-- Lottie injects SVG here natively -->
       </div>
 
     </header>
@@ -179,7 +180,7 @@
     <!-- Interest Registration Form -->
     <section class="form-section" id="interestFormSection">
       <div class="form-header">
-        <img src="/koala_meditating.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
+        <img src="./public/koala_meditating.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
         <h2>Register Interest</h2>
         <p>Percentage returns are to be determined. I want zero hand-holding, I just need money to move. Let me put my head down, work this all out and build, but I need to see who is able and willing to support me.</p>
       </div>
@@ -339,49 +340,49 @@
 
     <div class="brand-gallery" id="stackedGallery">
       <div class="gallery-item item-0">
-        <img src="/brand2.jpg" loading="lazy" alt="Brand Visual 1">
+        <img src="./public/brand2.jpg" loading="lazy" alt="Brand Visual 1">
       </div>
       <div class="gallery-item item-1">
-        <img src="/brand1.jpg" loading="lazy" alt="Brand Image 2">
+        <img src="./public/brand1.jpg" loading="lazy" alt="Brand Image 2">
       </div>
       <div class="gallery-item item-2">
-        <img src="/brand4.jpg" loading="lazy" alt="Brand Image 3">
+        <img src="./public/brand4.jpg" loading="lazy" alt="Brand Image 3">
       </div>
       <div class="gallery-item item-3">
-        <img src="/brand3.jpg" loading="lazy" alt="Brand Image 4">
+        <img src="./public/brand3.jpg" loading="lazy" alt="Brand Image 4">
       </div>
       <div class="gallery-item item-4">
-        <img src="/brand5.jpg" loading="lazy" alt="Brand Image 5">
+        <img src="./public/brand5.jpg" loading="lazy" alt="Brand Image 5">
       </div>
       <div class="gallery-item item-5">
-        <img src="/new_concept1.jpg" loading="lazy" alt="New Concept 1">
+        <img src="./public/new_concept1.jpg" loading="lazy" alt="New Concept 1">
       </div>
       <div class="gallery-item item-6">
-        <img src="/new_concept2.jpg" loading="lazy" alt="New Concept 2">
+        <img src="./public/new_concept2.jpg" loading="lazy" alt="New Concept 2">
       </div>
       <div class="gallery-item item-7">
-        <img src="/new_concept3.png" loading="lazy" alt="New Concept 3">
+        <img src="./public/new_concept3.png" loading="lazy" alt="New Concept 3">
       </div>
       <div class="gallery-item item-8">
-        <img src="/new_concept4.png" loading="lazy" alt="New Concept 4">
+        <img src="./public/new_concept4.png" loading="lazy" alt="New Concept 4">
       </div>
       <div class="gallery-item item-9">
-        <img src="/new_concept5.png" loading="lazy" alt="New Concept 5">
+        <img src="./public/new_concept5.png" loading="lazy" alt="New Concept 5">
       </div>
       <div class="gallery-item item-10">
-        <img src="/new_concept6.jpg" loading="lazy" alt="New Concept 6">
+        <img src="./public/new_concept6.jpg" loading="lazy" alt="New Concept 6">
       </div>
       <div class="gallery-item item-11">
-        <img src="/new_concept7.jpg" loading="lazy" alt="New Concept 7">
+        <img src="./public/new_concept7.jpg" loading="lazy" alt="New Concept 7">
       </div>
       <div class="gallery-item item-12">
-        <img src="/new_concept8.jpg" loading="lazy" alt="New Concept 8">
+        <img src="./public/new_concept8.jpg" loading="lazy" alt="New Concept 8">
       </div>
       <div class="gallery-item item-13">
-        <img src="/new_concept9.jpg" loading="lazy" alt="New Concept 9">
+        <img src="./public/new_concept9.jpg" loading="lazy" alt="New Concept 9">
       </div>
       <div class="gallery-item item-14">
-        <img src="/new_concept10.jpg" loading="lazy" alt="New Concept 10">
+        <img src="./public/new_concept10.jpg" loading="lazy" alt="New Concept 10">
       </div>
     </div>
 
@@ -434,7 +435,7 @@
       </button>
       
       <div class="form-header">
-        <img src="/koala_happy.png" loading="lazy" class="koala-form-guide" alt="Happy Koala">
+        <img src="./public/koala_happy.png" loading="lazy" class="koala-form-guide" alt="Happy Koala">
         <h2 id="modalTierTitle">Secure Allocation</h2>
         <p>Please provide your details before proceeding to payment.</p>
         
@@ -498,7 +499,7 @@
     <span>Contact me for more information</span>
   </a>
 
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="./src/main.js"></script>
   <script>
     const toggleBtn = document.getElementById('toggleInterest');
     const formSection = document.getElementById('interestFormSection');
@@ -763,19 +764,16 @@
       btn.addEventListener('mouseenter', playHoverSound);
     });
 
-    // 4. Lottie Animations Integration Instructions
-    // To insert your Lottie animations, uncomment the library below in the <head>:
-    // <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-    // Then use this snippet to render your JSON files:
-    /*
-    lottie.loadAnimation({
-      container: document.getElementById('your-lottie-container'), 
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/your-animation.json' // path to your lottie JSON file in the public folder
-    });
-    */
+    // 4. Lottie Animations Integration
+    if (document.getElementById('hero-lottie')) {
+      lottie.loadAnimation({
+        container: document.getElementById('hero-lottie'), 
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: './public/Koalas_flying.json' // native relative path for Git repository root
+      });
+    }
 
   </script>
 </body>
