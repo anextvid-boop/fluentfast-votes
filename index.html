@@ -634,6 +634,34 @@
       }, 1500);
     });
 
+    // Dynamic bypass for GoFundMe dropdown selection to skip the signup form
+    const amountDropdown = document.getElementById('amount');
+    const investorFormInputs = document.querySelectorAll('#investorForm .form-group:not(:has(#amount))');
+    const investorSubmitBtn = document.querySelector('#investorForm .submit-button');
+    
+    amountDropdown.addEventListener('change', (e) => {
+        if (e.target.value === 'gofundme') {
+            // Hide signup details and remove required attributes
+            investorFormInputs.forEach(el => {
+                el.style.display = 'none';
+                const inputs = el.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => input.removeAttribute('required'));
+            });
+            investorSubmitBtn.innerText = 'PROCEED TO GOFUNDME';
+        } else {
+            // Restore signup details and required attributes
+            investorFormInputs.forEach(el => {
+                el.style.display = '';
+                const inputs = el.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    // Only background is optional
+                    if(input.id !== 'background') input.setAttribute('required', 'true');
+                });
+            });
+            investorSubmitBtn.innerText = 'Send Interest';
+        }
+    });
+
     // Investment Flow Modal Logic
     const investModalOverlay = document.getElementById('investModalOverlay');
     const closeInvestModal = document.getElementById('closeInvestModal');
