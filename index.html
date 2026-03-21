@@ -368,9 +368,7 @@
       <div class="gallery-item item-0">
         <img src="./public/brand2.jpg" loading="lazy" alt="Brand Visual 1">
       </div>
-      <div class="gallery-item item-1">
-        <img src="./public/comparison.png" loading="lazy" alt="Comparison Visual">
-      </div>
+
       <div class="gallery-item item-2">
         <img src="./public/brand1.jpg" loading="lazy" alt="Brand Image 2">
       </div>
@@ -412,6 +410,9 @@
       </div>
       <div class="gallery-item item-15">
         <img src="./public/new_concept10.jpg" loading="lazy" alt="New Concept 10">
+      </div>
+      <div class="gallery-item item-16">
+        <img src="./public/comparison.png" loading="lazy" alt="Comparison Visual">
       </div>
     </div>
 
@@ -803,7 +804,7 @@
     }, observerOptions);
 
     // Apply animation tracking to layout blocks
-    document.querySelectorAll('.tier-card, .message-section, .gallery-item, .brand-header, .title-animated').forEach(el => {
+    document.querySelectorAll('.tier-card, .message-section, .gallery-item, .title-animated').forEach(el => {
       el.classList.add('hidden-reveal'); // Initialize hidden state
       revealObserver.observe(el);
     });
@@ -841,7 +842,7 @@
     if (document.getElementById('hero-lottie')) {
       lottie.loadAnimation({
         container: document.getElementById('hero-lottie'),
-        renderer: 'canvas',
+        renderer: 'svg',
         loop: true,
         autoplay: true,
         path: './public/Koalas_flying.json' // native relative path for Git repository root
