@@ -592,7 +592,16 @@
 
     investorForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      
+      const selectedAmount = document.getElementById('amount').value;
       const submitBtn = investorForm.querySelector('.submit-button');
+      
+      if (selectedAmount === 'gofundme') {
+          // Instant redirect, no delay or fake loading needed for GoFundMe selections
+          window.location.href = 'https://gofund.me/815cb2b60';
+          return;
+      }
+      
       const originalText = submitBtn.innerText;
 
       // Polish: Loading State
@@ -607,13 +616,7 @@
         submitBtn.style.opacity = '1';
 
         setTimeout(() => {
-          const selectedAmount = document.getElementById('amount').value;
-
-          if (selectedAmount === 'gofundme') {
-            window.location.href = 'https://gofund.me/815cb2b60';
-          } else {
-            alert('Interest registered! We will contact you soon.');
-          }
+          alert('Interest registered! We will contact you soon.');
 
           investorForm.reset();
 
@@ -626,10 +629,8 @@
           formSection.classList.remove('expanded');
           toggleBtn.classList.remove('active');
           toggleBtn.querySelector('span').innerText = 'Register Interest';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
 
-          if (selectedAmount !== 'gofundme') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
         }, 2000);
       }, 1500);
     });
