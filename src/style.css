@@ -36,18 +36,64 @@ body {
   position: relative;
 }
 
-/* Polished Background with Animated Gradient - Disabled for clean look */
+/* Polished Background with Animated Gradient - Updated for Parallax */
 .bg-gradient {
   position: fixed;
-  top: 0;
+  top: -20vh;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 200vh; /* Extended well below fold to prevent clipping on long scrolls */
   background: linear-gradient(rgba(89, 86, 214, 0.85), rgba(15, 18, 37, 0.95)), url('/brand1.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   z-index: -2;
+  will-change: transform; /* Hardware acceleration for smooth scrolling */
+}
+
+/* Lottie Player Container for Hero Section */
+.header-lottie-container {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  height: 320px;
+  z-index: 10;
+  pointer-events: none; /* Let clicks pass through if it overlaps text */
+}
+
+@media (max-width: 900px) {
+  .header-lottie-container {
+    width: 200px;
+    height: 200px;
+    right: -5%;
+    top: 60%;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-lottie-container {
+    width: 140px;
+    height: 140px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 75%;
+    opacity: 0.7;
+  }
+}
+
+/* Scroll Triggered Animation Classes */
+.hidden-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible-reveal {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* bg-texture removed */
@@ -615,7 +661,7 @@ footer {
 }
 
 .accordion.active .accordion-content {
-  max-height: 400px;
+  max-height: 2000px;
   opacity: 1;
   padding-bottom: 1.5rem;
 }
@@ -805,7 +851,7 @@ footer {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-  max-height: 1500px;
+  max-height: 4000px;
   /* Expands smoothly */
   margin-bottom: 2rem;
 }
@@ -1101,7 +1147,7 @@ footer {
 }
 
 .form-section.expanded {
-  max-height: 1500px;
+  max-height: 4000px;
   /* Large enough for content */
   opacity: 1;
   padding: 4rem;
