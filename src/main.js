@@ -188,5 +188,15 @@ function updateScrollScale() {
     }
 }
 
-window.addEventListener('scroll', updateScrollScale, { passive: true });
-window.addEventListener('resize', updateScrollScale, { passive: true });
+let mainTicking = false;
+const scrollHandler = () => {
+  if (!mainTicking) {
+    window.requestAnimationFrame(() => {
+      updateScrollScale();
+      mainTicking = false;
+    });
+    mainTicking = true;
+  }
+};
+window.addEventListener('scroll', scrollHandler, { passive: true });
+window.addEventListener('resize', scrollHandler, { passive: true });

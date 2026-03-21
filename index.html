@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INVESTOR | FluentFast</title>
   <link rel="stylesheet" href="./src/style.css" />
@@ -706,13 +706,16 @@
     
     // 1. Subtle Parallax Background Effect - fixed direction
     const bgGradient = document.querySelector('.bg-gradient');
+    let tickingBg = false;
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (bgGradient) {
-        // use negative so the background moves up, preventing the top edge from dropping down
-        bgGradient.style.transform = `translateY(${scrollY * -0.3}px)`;
+      if (!tickingBg) {
+        window.requestAnimationFrame(() => {
+          if (bgGradient) bgGradient.style.transform = `translateY(${window.scrollY * -0.3}px)`;
+          tickingBg = false;
+        });
+        tickingBg = true;
       }
-    });
+    }, { passive: true });
 
     // 2. Scroll-Triggered Reveal Animations
     const observerOptions = {
