@@ -356,8 +356,7 @@ footer {
   margin: 10px 0;
   opacity: 1;
   color: #fff;
-  text-shadow: 0 0 20px var(--brand-light), 0 0 40px var(--royal-blue);
-  /* JS animation handles entrance neon flicker exclusively */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Replaced heavy glowing blur with tight, highly visible drop shadow */
 }
 
 .word-group.word-on {
@@ -366,73 +365,57 @@ footer {
 
 @keyframes neonBlinkOn {
   0% {
-    color: #333;
-    text-shadow: none;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     opacity: 0.3;
   }
-
   2% {
     color: #fff;
-    text-shadow: 0 0 50px var(--brand-glow), 0 0 100px var(--brand-glow);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     opacity: 1;
   }
-
   4% {
-    color: #222;
-    text-shadow: none;
-    opacity: 0.4;
-  }
-
-  10% {
-    color: #222;
-    text-shadow: none;
-    opacity: 0.4;
-  }
-
-  12% {
-    color: #fff;
-    text-shadow: 0 0 60px var(--brand-light), 0 0 120px var(--brand-light);
-    opacity: 1;
-  }
-
-  14% {
-    color: #111;
-    text-shadow: none;
-    opacity: 0.2;
-  }
-
-  25% {
-    color: #111;
-    text-shadow: none;
-    opacity: 0.2;
-  }
-
-  35% {
-    color: #fff;
-    text-shadow: 0 0 80px var(--brand-glow);
-    opacity: 1;
-  }
-
-  45% {
-    color: #555;
-    text-shadow: none;
+    color: #f7f7f7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     opacity: 0.7;
   }
-
+  12% {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    opacity: 1;
+  }
+  14% {
+    color: #f7f7f7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+  }
+  25% {
+    color: #ccc;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+  }
+  35% {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    opacity: 1;
+  }
+  45% {
+    color: #ddd;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+  }
   60% {
     color: #fff;
-    text-shadow: 0 0 100px var(--brand-glow), 0 0 150px var(--brand-glow);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
-
   75% {
     transform: scale(1);
   }
-
   100% {
     color: #fff;
-    text-shadow: 0 0 20px var(--brand-light), 0 0 40px var(--royal-blue);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     opacity: 1;
   }
 }
