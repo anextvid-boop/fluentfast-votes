@@ -3,24 +3,22 @@
 // Scroll fade effect removed to protect pitch area readability
 
 // Subtle hover animation for cards using mouse position
-const cards = document.querySelectorAll('.tier-card');
-cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-        
-        // Removed Tilt effect for a more solid, premium feel
-        // Keeping mouse x/y tracking for potential hover glow effects
+let cards = null;
+
+function initCardHover() {
+    if (!cards) cards = document.querySelectorAll('.tier-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
     });
-    
-    card.addEventListener('mouseleave', () => {
-        // transform logic now handled cleanly by CSS hover state with calc()
-    });
-});
+}
+
 
 // UI Sound Effects
 // Mathematical Synthesizer using Web Audio API for a perfect premium click
@@ -108,6 +106,8 @@ function initializeObservers() {
     const animTargets = document.querySelectorAll('.tier-card, .tier-name, .tier-price, .tier-expand-btn, .theme-box, .execution-list li');
     animTargets.forEach(el => formBtnObserver.observe(el));
     
+    initCardHover();
+    
     // Initialize scroll scale early
     updateScrollScale();
 }
@@ -119,40 +119,43 @@ if (document.readyState === 'loading') {
 }
 
 // Premium Scroll Parallax for Tier Cards
-const titleContainer = document.querySelector('.title-animated');
-const titleWords = document.querySelectorAll('.word-group');
+let titleContainer = null;
+let titleWords = null;
 
 function updateScrollScale() {
+    if (!titleContainer) titleContainer = document.querySelector('.title-animated');
+    if (!titleWords) titleWords = document.querySelectorAll('.word-group');
+    if (!cards) cards = document.querySelectorAll('.tier-card');
+    
     const windowCenter = window.innerHeight / 2;
-    cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.top + rect.height / 2;
-        
-    const maxDistance = window.innerHeight / 1.2;
-        const distance = Math.abs(windowCenter - cardCenter);
-        
-        let scale = 1 - (distance / maxDistance) * 0.15; 
-        scale = Math.max(0.85, Math.min(1, scale)); 
-        
-        card.style.setProperty('--scroll-scale', scale);
-    });
+    if (cards) {
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.top + rect.height / 2;
+            
+        const maxDistance = window.innerHeight / 1.2;
+            const distance = Math.abs(windowCenter - cardCenter);
+            
+            let scale = 1 - (distance / maxDistance) * 0.15; 
+            scale = Math.max(0.85, Math.min(1, scale)); 
+            
+            card.style.setProperty('--scroll-scale', scale);
+        });
+    }
     
     // Continuous Left-to-Right sweep and glow for Animated Title (PLAY. LEARN. SPEAK. TOGETHER.)
-    if (titleContainer && titleWords.length) {
+    if (titleContainer && titleWords && titleWords.length) {
         const titleRect = titleContainer.getBoundingClientRect();
         const winHeight = window.innerHeight;
         
         // We want progress to be exactly 1.0 (fully assembled/static) while it resides comfortably on screen.
-        // It drops to 0.0 sequentially as it exits either the top or bottom half of the viewport.
+        // It drops to 0.0 sequentially as it exits the top of the viewport.
         let progress = 1;
-        
-        if (titleRect.top > winHeight * 0.55) {
-            // Animating IN from the bottom
-            progress = 1 - (titleRect.top - winHeight * 0.55) / (winHeight * 0.45);
-        } else if (titleRect.top < winHeight * 0.35) {
+
+        if (titleRect.top < winHeight * 0.45) {
             // Animating OUT as it scrolls past the upper-middle threshold
-            const exitTravelDistance = winHeight * 0.5; // How many pixels of scroll it takes to break apart
-            progress = (titleRect.top + exitTravelDistance) / ((winHeight * 0.35) + exitTravelDistance); 
+            const exitTravelDistance = winHeight * 0.6; // How many pixels of scroll it takes to break apart completely
+            progress = (titleRect.top + exitTravelDistance) / ((winHeight * 0.45) + exitTravelDistance); 
         }
         
         progress = Math.max(0, Math.min(1, progress));
