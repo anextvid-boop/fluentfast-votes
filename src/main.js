@@ -119,6 +119,9 @@ if (document.readyState === 'loading') {
 }
 
 // Premium Scroll Parallax for Tier Cards
+const titleContainer = document.querySelector('.title-animated');
+const titleWords = document.querySelectorAll('.word-group');
+
 function updateScrollScale() {
     const windowCenter = window.innerHeight / 2;
     cards.forEach(card => {
@@ -135,8 +138,7 @@ function updateScrollScale() {
     });
     
     // Continuous Left-to-Right sweep and glow for Animated Title (PLAY. LEARN. SPEAK. TOGETHER.)
-    const titleContainer = document.querySelector('.title-animated');
-    if (titleContainer) {
+    if (titleContainer && titleWords.length) {
         const titleRect = titleContainer.getBoundingClientRect();
         const winHeight = window.innerHeight;
         
@@ -155,8 +157,7 @@ function updateScrollScale() {
         
         progress = Math.max(0, Math.min(1, progress));
         
-        const words = document.querySelectorAll('.word-group');
-        words.forEach((word, index) => {
+        titleWords.forEach((word, index) => {
             // Sequence each word's animation start and end points based on index! 
             // Left to Right sweep effect!
             const startPoint = index * 0.15; 
