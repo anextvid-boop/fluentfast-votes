@@ -56,18 +56,17 @@ body {
 
 @media (max-width: 900px) {
   .header-lottie-koala {
-    width: 100px;
-    height: 100px;
-    right: -80px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: -1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .header-lottie-koala {
-    width: 80px;
-    height: 80px;
-    right: -60px;
-    opacity: 0.9;
+    width: 130px;
+    height: 130px;
+    margin-bottom: -1.5rem;
   }
 }
 
@@ -131,11 +130,19 @@ footer {
 
 .brand-header {
   position: relative;
-  /* For absolutely positioned koala */
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 0.5rem;
+}
+
+.header-lottie-koala {
+  width: 180px;
+  height: 180px;
+  margin-top: -2rem; /* Bring slightly closer to top */
+  margin-bottom: -1rem; /* Pull fluentfast text closer to the koala */
+  z-index: 10;
+  pointer-events: none;
 }
 
 .brand-logo {
