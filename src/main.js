@@ -106,9 +106,13 @@ function initializeObservers() {
     const animTargets = document.querySelectorAll('.tier-card, .tier-name, .tier-price, .tier-expand-btn, .theme-box, .execution-list li');
     animTargets.forEach(el => formBtnObserver.observe(el));
     
+    // Safely assign global cached DOM references ONLY after the DOM is verified loaded 
+    titleContainer = document.querySelector('.title-animated');
+    titleWords = document.querySelectorAll('.word-group');
+    
     initCardHover();
     
-    // Initialize scroll scale early
+    // Initialize scroll scale manually upon final load
     updateScrollScale();
 }
 
@@ -123,10 +127,6 @@ let titleContainer = null;
 let titleWords = null;
 
 function updateScrollScale() {
-    if (!titleContainer) titleContainer = document.querySelector('.title-animated');
-    if (!titleWords) titleWords = document.querySelectorAll('.word-group');
-    if (!cards) cards = document.querySelectorAll('.tier-card');
-    
     const windowCenter = window.innerHeight / 2;
     if (cards) {
         cards.forEach(card => {
