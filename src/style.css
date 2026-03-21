@@ -42,45 +42,32 @@ body {
   top: -20vh;
   left: 0;
   width: 100%;
-  height: 200vh; /* Extended well below fold to prevent clipping on long scrolls */
+  height: 200vh;
+  /* Extended well below fold to prevent clipping on long scrolls */
   background: linear-gradient(rgba(89, 86, 214, 0.85), rgba(15, 18, 37, 0.95)), url('../public/brand1.jpg');
   background-size: cover;
   background-position: center;
   z-index: -2;
-  will-change: transform; /* Hardware acceleration for smooth scrolling */
+  will-change: transform;
+  /* Hardware acceleration for smooth scrolling */
 }
 
-/* Lottie Player Container for Hero Section */
-.header-lottie-container {
-  position: absolute;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 320px;
-  height: 320px;
-  z-index: 10;
-  pointer-events: none; /* Let clicks pass through if it overlaps text */
-}
+
 
 @media (max-width: 900px) {
-  .header-lottie-container {
-    width: 200px;
-    height: 200px;
-    right: -5%;
-    top: 60%;
-    opacity: 0.8;
+  .header-lottie-koala {
+    width: 100px;
+    height: 100px;
+    right: -80px;
   }
 }
 
 @media (max-width: 480px) {
-  .header-lottie-container {
-    width: 140px;
-    height: 140px;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 75%;
-    opacity: 0.7;
+  .header-lottie-koala {
+    width: 80px;
+    height: 80px;
+    right: -60px;
+    opacity: 0.9;
   }
 }
 
@@ -1497,7 +1484,8 @@ textarea:focus {
   bottom: 2rem;
   right: 2rem;
   padding: 0.8rem 1.5rem;
-  background: var(--royal-blue); /* Updated from WhatsApp green to match brand */
+  background: var(--royal-blue);
+  /* Updated from WhatsApp green to match brand */
   border-radius: 100px;
   box-shadow: 0 10px 30px rgba(89, 86, 214, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.2);
   display: flex;
@@ -1524,7 +1512,8 @@ textarea:focus {
 
 .floating-whatsapp:hover {
   transform: translateY(-8px) scale(1.03);
-  background: var(--brand-light); /* Matching brand hover state */
+  background: var(--brand-light);
+  /* Matching brand hover state */
   box-shadow: 0 15px 40px rgba(104, 101, 240, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.3);
   animation-play-state: paused;
 }
@@ -1535,9 +1524,12 @@ textarea:focus {
 }
 
 @keyframes floatBounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -1545,16 +1537,18 @@ textarea:focus {
 
 @media (max-width: 768px) {
   .floating-whatsapp {
-    bottom: 2.5rem; /* Raised to prevent iOS Safari bottom bar overlap */
+    bottom: 2.5rem;
+    /* Raised to prevent iOS Safari bottom bar overlap */
     right: 1.5rem;
     width: 65px;
     height: 65px;
     padding: 0;
     border-radius: 50%;
   }
-  
+
   .floating-whatsapp span {
-    display: none; /* Hide text on mobile to save screen space */
+    display: none;
+    /* Hide text on mobile to save screen space */
   }
 
   .floating-whatsapp svg {
@@ -1574,14 +1568,15 @@ textarea:focus {
   height: 100vh;
   /* iOS safe fallback */
   height: -webkit-fill-available;
-  background: rgba(15, 18, 37, 0.85); /* deep-navy slightly transparent */
+  background: rgba(15, 18, 37, 0.85);
+  /* deep-navy slightly transparent */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   /* Safe hiding mechanism that doesn't break iOS transitions */
   opacity: 0;
   pointer-events: none;
@@ -1610,7 +1605,8 @@ textarea:focus {
   max-width: 650px;
   max-height: 90vh;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* Required for iOS smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Required for iOS smooth scrolling */
   transform: translateY(30px) scale(0.95);
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   padding: 2.5rem 2rem;
@@ -1654,11 +1650,14 @@ textarea:focus {
   }
 
   .modal-overlay .modal-content {
-    padding: 2rem 1.25rem 4rem; /* large bottom padding so the button is never cut off by iOS safe zones */
-    border-radius: 24px 24px 0 0; /* Make it look like a bottom sheet or nicer card */
+    padding: 2rem 1.25rem 4rem;
+    /* large bottom padding so the button is never cut off by iOS safe zones */
+    border-radius: 24px 24px 0 0;
+    /* Make it look like a bottom sheet or nicer card */
     max-height: 95vh;
     width: 100%;
-    margin-top: auto; /* Push down */
+    margin-top: auto;
+    /* Push down */
     transform: translateY(100%);
   }
 
@@ -1667,24 +1666,25 @@ textarea:focus {
   }
 
   .form-header h2 {
-    font-size: 1.6rem !important; /* Scale down heading */
+    font-size: 1.6rem !important;
+    /* Scale down heading */
   }
 
   .form-header {
     margin-bottom: 1.5rem;
   }
-  
+
   .koala-form-guide {
     width: 60px !important;
     margin-bottom: 0.5rem;
   }
-  
+
   .close-modal-btn {
     top: 1rem;
     right: 1rem;
     background: rgba(255, 255, 255, 0.1);
   }
-  
+
   .split-row {
     flex-direction: column !important;
     gap: 0 !important;
