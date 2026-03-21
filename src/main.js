@@ -1,4 +1,4 @@
-import './style.css'
+// style.css is already loaded via standard HTML <link> natively.
 
 // Scroll fade effect removed to protect pitch area readability
 
@@ -61,7 +61,7 @@ function playClickSound() {
 }
 
 // Attach sound to interactive elements
-document.addEventListener('DOMContentLoaded', () => {
+function initializeObservers() {
     const interactables = document.querySelectorAll('button, a.invest-button');
     interactables.forEach(el => {
         el.addEventListener('mousedown', playClickSound);
@@ -110,7 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize scroll scale early
     updateScrollScale();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeObservers);
+} else {
+    initializeObservers();
+}
 
 // Premium Scroll Parallax for Tier Cards
 function updateScrollScale() {
