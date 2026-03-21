@@ -152,6 +152,7 @@ footer {
 
 .floating {
   animation: floating 3s infinite ease-in-out;
+  will-change: transform;
 }
 
 @keyframes floating {
@@ -170,8 +171,8 @@ footer {
 
 .brand-text {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 12vw, 7.5rem);
-  /* Increased per user request */
+  font-size: clamp(3.5rem, 16vw, 10.5rem);
+  /* Maximized dynamically per user request */
   font-weight: 900;
   line-height: 0.85;
   letter-spacing: -1px;
