@@ -106,9 +106,16 @@ function initializeObservers() {
     const animTargets = document.querySelectorAll('.tier-card, .tier-name, .tier-price, .tier-expand-btn, .theme-box, .execution-list li');
     animTargets.forEach(el => formBtnObserver.observe(el));
     
-    // Safely assign global cached DOM references ONLY after the DOM is verified loaded 
-    titleContainer = document.querySelector('.title-animated');
-    titleWords = document.querySelectorAll('.word-group');
+    // Animate Title natively upon sight!
+    const titleWordsStatic = document.querySelectorAll('.word-group');
+    const wordObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('word-on');
+            }
+        });
+    }, { threshold: 0.2 });
+    titleWordsStatic.forEach(w => wordObserver.observe(w));
     
     initCardHover();
     
@@ -123,10 +130,9 @@ if (document.readyState === 'loading') {
 }
 
 // Premium Scroll Parallax for Tier Cards
-let titleContainer = null;
-let titleWords = null;
 
 function updateScrollScale() {
+    
     const windowCenter = window.innerHeight / 2;
     if (cards) {
         cards.forEach(card => {
@@ -142,62 +148,8 @@ function updateScrollScale() {
             card.style.setProperty('--scroll-scale', scale);
         });
     }
-    
-    // Continuous Left-to-Right sweep and glow for Animated Title (PLAY. LEARN. SPEAK. TOGETHER.)
-    if (titleContainer && titleWords && titleWords.length) {
-        const titleRect = titleContainer.getBoundingClientRect();
-        const winHeight = window.innerHeight;
-        
-        // We want progress to be exactly 1.0 (fully assembled/static) while it resides comfortably on screen.
-        // It drops to 0.0 sequentially as it exits the top of the viewport.
-        let progress = 1;
-
-        if (titleRect.top < winHeight * 0.45) {
-            // Animating OUT as it scrolls past the upper-middle threshold
-            const exitTravelDistance = winHeight * 0.6; // How many pixels of scroll it takes to break apart completely
-            progress = (titleRect.top + exitTravelDistance) / ((winHeight * 0.45) + exitTravelDistance); 
-        }
-        
-        progress = Math.max(0, Math.min(1, progress));
-        
-        titleWords.forEach((word, index) => {
-            // Sequence each word's animation start and end points based on index! 
-            // Left to Right sweep effect!
-            const startPoint = index * 0.15; 
-            const endPoint = startPoint + 0.45;
-            
-            let localProgress = (progress - startPoint) / (endPoint - startPoint);
-            localProgress = Math.max(0, Math.min(1, localProgress));
-            
-            // Ease out cubic for snap feeling
-            const easeOut = 1 - Math.pow(1 - localProgress, 3);
-            
-            const xOffset = -(window.innerWidth) * (1 - easeOut);
-            const wordScale = 0.85 + (0.15 * easeOut);
-            
-            word.style.transform = `translateX(${xOffset}px) scale(${wordScale})`;
-            
-            if (easeOut >= 0.98) {
-                if (!word.classList.contains('word-on')) {
-                    word.classList.add('word-on');
-                    word.style.color = '';
-                    word.style.textShadow = '';
-                    word.style.opacity = '';
-                }
-                word.style.filter = 'blur(0px)';
-            } else {
-                if (word.classList.contains('word-on')) {
-                    word.classList.remove('word-on');
-                }
-                word.style.opacity = 0.05 + (0.95 * easeOut);
-                word.style.color = '#555'; /* Dimmer to begin with */
-                word.style.filter = `blur(${8 * (1 - easeOut)}px)`;
-                word.style.textShadow = 'none';
-            }
-        });
-    }
 }
-
+            
 let mainTicking = false;
 const scrollHandler = () => {
   if (!mainTicking) {

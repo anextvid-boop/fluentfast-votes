@@ -354,16 +354,13 @@ footer {
 .word-group {
   display: flex;
   margin: 10px 0;
-  opacity: 0.2;
-  transform: scale(0.9) translateY(20px);
-  filter: blur(4px);
-  /* transition is removed because JS now mathematically controls every pixel per frame continuously tied to scroll */
+  opacity: 1;
+  color: #fff;
+  text-shadow: 0 0 20px var(--brand-light), 0 0 40px var(--royal-blue);
+  /* JS animation handles entrance neon flicker exclusively */
 }
 
 .word-group.word-on {
-  color: #fff;
-  text-shadow: 0 0 20px var(--brand-light), 0 0 40px var(--royal-blue);
-  opacity: 1;
   animation: neonBlinkOn 0.4s ease-out forwards;
 }
 
