@@ -10,14 +10,16 @@ html {
   --brand-light: #8E8CF6;
   --brand-glow: rgba(89, 86, 214, 0.4);
   --deep-navy: #0F1225;
+  --page-bg: #F8F9FA;
+  --text-dark: #0F1225;
   --text-light: #FFFFFF;
-  --text-dark: #000000;
-  --text-dim: rgba(255, 255, 255, 0.7);
   --card-bg: rgba(39, 45, 64, 0.9);
   --card-border: rgba(142, 140, 246, 0.2);
 
   --font-main: 'Outfit', sans-serif;
   --font-display: 'DM Sans', sans-serif;
+  --page-bg: #F8F9FA;
+  --text-dark: #0F1225;
 }
 
 * {
@@ -28,8 +30,8 @@ html {
 }
 
 body {
-  background-color: var(--deep-navy);
-  color: var(--text-light);
+  background-color: #F8F9FA;
+  color: #0F1225;
   font-family: var(--font-main);
   line-height: 1.4;
   overflow-x: hidden;
@@ -38,18 +40,17 @@ body {
 
 /* Polished Background with Animated Gradient - Updated for Parallax */
 .bg-gradient {
-  position: fixed;
-  top: -20vh;
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 200vh;
-  /* Extended well below fold to prevent clipping on long scrolls */
-  background: linear-gradient(rgba(89, 86, 214, 0.85), rgba(15, 18, 37, 0.95)), url('../public/brand1.jpg');
+  height: 130vh;
+  background: linear-gradient(rgba(15, 18, 37, 0.95), rgba(89, 86, 214, 0.99)), url('../public/brand1.jpg');
   background-size: cover;
   background-position: center;
   z-index: -2;
-  will-change: transform;
-  /* Hardware acceleration for smooth scrolling */
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
 
@@ -172,8 +173,8 @@ footer {
 
 .brand-text {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 16vw, 10.5rem);
-  /* Maximized dynamically per user request */
+  font-size: clamp(2rem, 8vw, 6.5rem);
+  /* Shrunk down so FluentFast is less dominant */
   font-weight: 900;
   line-height: 0.85;
   letter-spacing: -1px;
@@ -222,12 +223,13 @@ footer {
 
 .brand-tagline {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 6vw, 3rem);
-  /* Increased size to stand out */
+  font-size: clamp(3.5rem, 14vw, 8rem);
+  /* Increased size significantly to make it iconic */
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 5px;
   color: var(--text-light);
+  text-shadow: 0 0 20px rgba(142, 140, 246, 0.6), 0 0 40px rgba(89, 86, 214, 0.4);
   margin-top: 1rem;
   position: relative;
   z-index: 2;
@@ -1131,10 +1133,10 @@ footer {
 }
 
 .form-loader-btn {
-  background: var(--royal-blue);
-  color: white;
+  background: #FFFFFF;
+  color: var(--deep-navy);
   padding: 1.5rem 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(89, 86, 214, 0.3);
   border-radius: 100px;
   font-family: var(--font-display);
   font-weight: 900;
@@ -1149,7 +1151,7 @@ footer {
   max-width: 340px;
   transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   margin-bottom: 1rem;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateY(30px) scale(0.95);
   filter: blur(4px);
@@ -1163,9 +1165,9 @@ footer {
 
 .form-loader-btn:hover {
   transform: translateY(-5px) scale(1.05);
-  /* organic pop over the appear state */
   background: var(--brand-light);
-  box-shadow: 0 20px 40px var(--brand-glow);
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(89, 86, 214, 0.3);
 }
 
 .form-loader-btn:active {
@@ -1513,14 +1515,261 @@ textarea:focus {
 }
 
 @keyframes floatBounce {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-8px);
+  }
+}
+
+/* --- Voting Board --- */
+.voting-board-section {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.voting-filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.filter-btn.active {
+  background: var(--brand-light);
+  border-color: var(--brand-light);
+  color: #fff;
+  box-shadow: 0 0 15px var(--brand-glow);
+}
+
+.voting-submitter {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+}
+
+.voting-submitter input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+}
+
+.voting-submitter input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.voting-submitter button {
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  border: none;
+  background: #fff;
+  color: var(--deep-navy);
+  font-family: var(--font-display);
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.voting-submitter button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.voting-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.vote-item {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.vote-item.hidden-item {
+  display: none;
+}
+
+.vote-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(45, 52, 74, 0.95);
+}
+
+.vote-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+  gap: 0.2rem;
+}
+
+.vote-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.vote-btn:hover {
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vote-btn.upvoted {
+  color: #4ade80; 
+  filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.5));
+}
+
+.vote-btn.downvoted {
+  color: #f87171;
+}
+
+.vote-count {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.vote-count.positive {
+  color: #4ade80;
+}
+
+.vote-count.negative {
+  color: #f87171;
+}
+
+.vote-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.vote-category {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand-light);
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+  background: rgba(142, 140, 246, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.vote-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #matrixSubmitForm {
+    flex-direction: column;
+  }
+  .matrix-submit-btn {
+    width: 100%;
+  }
+}
+
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sparkle-particle {
+  position: absolute;
+  bottom: -20px;
+  background-color: var(--text-light);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px var(--brand-light);
+  pointer-events: none;
+  animation: ascend var(--duration) linear infinite;
+  opacity: 0;
+}
+
+@keyframes ascend {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: calc(var(--max-opacity) * 0.5);
+  }
+  50% {
+    opacity: var(--max-opacity);
+    transform: translateY(-50vh) scale(1.2);
+  }
+  80% {
+    opacity: calc(var(--max-opacity) * 0.5);
+  }
+  100% {
+    transform: translateY(-110vh) scale(0.5);
+    opacity: 0;
   }
 }
 

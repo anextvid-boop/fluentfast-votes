@@ -5,15 +5,16 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INVESTOR | FluentFast</title>
+  <title>VOTES | FluentFast</title>
   <link rel="preload" href="./Koalas_flying.json" as="fetch" type="application/json" crossorigin="anonymous" />
   <link rel="preload" href="./public/brand3.jpg" as="image" fetchpriority="high" />
-  
   <link rel="stylesheet" href="./src/style.css?v=3" />
+  <link rel="stylesheet" href="./src/white-theme.css?v=1" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 </head>
 
 <body>
+  <div id="particles-container"></div>
   <div class="bg-gradient"></div>
 
   <div class="container">
@@ -26,14 +27,14 @@
           <span class="fluent">FLUENT</span><span class="fast">FAST</span>
         </div>
         <div class="brand-tagline">
-          <span class="inv-char">I</span><span class="inv-char">N</span><span class="inv-char">V</span><span
-            class="inv-char">E</span><span class="inv-char">S</span><span class="inv-char">T</span><span
-            class="inv-char">O</span><span class="inv-char">R</span><span class="inv-char">S</span>
+          <span class="inv-char">V</span><span class="inv-char">O</span><span class="inv-char">T</span><span
+            class="inv-char">E</span><span class="inv-char">S</span>
         </div>
-        <div class="brand-motivation">"YOU GOT THIS, YOU UNIT"</div>
+        <div class="brand-motivation">"WHAT DO WE BUILD NEXT?"</div>
 
-        <div class="hero-brand-image">
-          <img src="./public/brand3.jpg" fetchpriority="high" alt="Brand visual" class="center-image">
+        <div class="hero-brand-image" style="display: flex; justify-content: center; align-items: center; gap: 2rem;">
+          <img src="./public/fluentfast_koala.png" fetchpriority="high" alt="Koala Mascot 1" style="width: auto; max-height: 250px; border-radius: 0; box-shadow: none;">
+          <img src="./public/koala_meditating.png" fetchpriority="high" alt="Koala Mascot 2" style="width: auto; max-height: 250px; border-radius: 0; box-shadow: none; object-position: center;">
         </div>
       </div>
 
@@ -41,16 +42,42 @@
         <span class="word-group">PLAY.</span>
         <span class="word-group">LEARN.</span>
         <span class="word-group">SPEAK.</span>
-        <span class="word-group">TOGETHER.</span>
+        <span class="word-group" style="color: var(--royal-blue) !important;">TOGETHER.</span>
       </h1>
 
 
     </header>
 
+    <!-- Interactive Community Feature Board (Matrix Style) -->
+    <section class="voting-board-section hidden-reveal matrix-theme" style="margin-top: 2rem; margin-bottom: 3rem;">
+      <div class="message-section" style="padding-top: 0; padding-bottom: 1rem;">
+        <h3 style="color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); font-family: var(--font-display); font-size: 2rem; font-weight: 900;">WHAT SHOULD WE BUILD?</h3>
+        <p style="color: rgba(255,255,255,0.9); text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Toggle the features you want and submit your choices below.</p>
+      </div>
+
+      <div class="voting-filters">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="games">GAMES</button>
+        <button class="filter-btn" data-filter="voices">CHARACTERS</button>
+        <button class="filter-btn" data-filter="languages">LANGUAGES</button>
+      </div>
+
+      <div class="matrix-grid" id="matrixContainer">
+        <!-- JS will populate matrix switch items here -->
+      </div>
+
+      <div class="matrix-submit-section">
+         <form id="matrixSubmitForm">
+            <input type="email" id="matrixEmail" placeholder="Enter email to lock votes" required>
+            <button type="submit" class="pulse-btn matrix-submit-btn">SUBMIT SELECTIONS</button>
+         </form>
+      </div>
+    </section>
+
     <!-- Action Buttons Container -->
     <div class="action-buttons-container">
       <button class="form-loader-btn" id="togglePitch">
-        <span>Expand Details</span>
+        <span>About Voting</span>
         <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
           stroke-linecap="round" stroke-linejoin="round">
           <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -59,7 +86,7 @@
       </button>
 
       <button class="form-loader-btn" id="toggleInterest">
-        <span>Register Interest</span>
+        <span>Cast Your Vote</span>
         <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
           stroke-linecap="round" stroke-linejoin="round">
           <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -75,11 +102,10 @@
           <strong>FluentFast App</strong><br>
           No.1 Multiplayer Language Launcher.<br>
           <br>
-          Looking for project investors, angel investors, or anyone willing to support.<br>
-          Currently, I'm at flat nada. Stuck in the mud without capital.<br>
-          I just really need help. It's not a handout, it's an investment.<br>
+          We are building the future of language learning, but we need your help to decide what comes next.<br>
+          We don't want to make assumptions. We want pure community direction.<br>
           <br>
-          I want zero hand-holding. I just want to put my head down, work hard, and build.
+          Cast your vote on what you want to see, and if you have a crazy idea, let us know!
         </p>
       </div>
 
@@ -103,74 +129,41 @@
           <p style="margin-bottom: 0.8rem;">When learning with friends, you also practice with friends... Learning
             <strong>fluent faster</strong> together.</p>
           <p style="margin-bottom: 0.8rem;">Able to learn off the app also, with friends. Maybe with family.</p>
-          <p>Want your kid to learn? Learn together.</p>
+          <p>We have multiple paths we can execute, we just need to know which one you want the most.</p>
         </div>
       </div>
 
       <div class="message-section accordion">
         <div class="accordion-header">
-          <h3>The Founder's Background</h3>
+          <h3>Why We Need Your Vote</h3>
           <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </div>
         <div class="accordion-content">
-          <p style="margin-bottom: 0.8rem;"><strong>My Reading Materials:</strong></p>
+          <p style="margin-bottom: 0.8rem;"><strong>Direction is everything.</strong></p>
           <ul style="align-items: flex-start; margin: 0 auto 1.5rem; width: max-content; text-align: left;">
-            <li>Meta speed learning principles</li>
-            <li>Types of Mnemonics</li>
-            <li style="opacity: 0.6;">Other...</li>
+            <li>We have the skills to build any of these paths</li>
+            <li>We want to build what people actually want</li>
+            <li>We can pivot based on your feedback</li>
           </ul>
 
-          <p style="margin-bottom: 0.8rem;"><strong>Background in:</strong></p>
+          <p style="margin-bottom: 0.8rem;"><strong>What you can vote on:</strong></p>
           <ul style="align-items: flex-start; margin: 0 auto 1.5rem; width: max-content; text-align: left;">
-            <li>Art design</li>
-            <li>3D design</li>
-            <li>Games design</li>
-            <li>Build realtime environments</li>
-            <li>Transferable skillsets</li>
-            <li>Architectural visualisation</li>
-            <li>Some 3D animation</li>
-            <li>Now, Video production</li>
-            <li>Photography</li>
-            <li>Cleanest drone operator</li>
-            <li>Branding</li>
-            <li>Can animate logos</li>
-            <li>Bunch of other things</li>
-            <li>Language learning, self taught</li>
-            <li>Websites</li>
-            <li>Can personal brand</li>
-            <li>Scale up content</li>
-            <li>Can AI</li>
-            <li style="opacity: 0.6;">Other stuff...</li>
+            <li>The Strategy Game</li>
+            <li>The Social App</li>
+            <li>The Content Platform</li>
+            <li>And your own wild ideas!</li>
           </ul>
 
-          <p style="margin-bottom: 0.8rem;">Now want apps...</p>
-          <p style="margin-bottom: 0.8rem; color: var(--brand-light); font-weight: bold; font-style: italic;">No client interaction. Fun stuff that scales... 🤔</p>
-        </div>
-      </div>
-
-      <div class="message-section accordion">
-        <div class="accordion-header">
-          <h3>The Investment Fuel</h3>
-          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </div>
-        <div class="accordion-content">
-          <p style="margin-bottom: 1.5rem;">The skills are here; the capital is just the fuel.</p>
-          <p style="margin-bottom: 0.8rem;">I need investment fuel to move.</p>
-          <p style="margin-bottom: 0.8rem;">Money is for rent, food, moving, a bigger computer, a bunch of software, and
-            3-4-5 phones to test on...</p>
-          <p>To buy me a bit more time.</p>
+          <p style="margin-bottom: 0.8rem; color: var(--brand-light); font-weight: bold; font-style: italic;">Let's make something awesome together... 🤔</p>
         </div>
       </div>
 
       <div class="message-section isolate-quote accordion">
         <div class="accordion-header">
-          <h3>Equity & Returns</h3>
+          <h3>How it Works</h3>
           <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -179,12 +172,10 @@
         <div class="accordion-content">
           <div
             style="font-size: 0.95rem; margin-top: 0.5rem; color: #ffffff; background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); line-height: 1.6; text-align: left;">
-            <p style="margin-bottom: 0.75rem;">Percentage returns are to be determined. I just need moving around money.
+            <p style="margin-bottom: 0.75rem;">1. Review the options below.
             </p>
-            <p style="margin-bottom: 0.75rem;">I work quite hard, and I am confident I can create value, but I need fuel
-              to move and fix things up.</p>
-            <p style="margin-bottom: 0;">I just need to see who is able to support me. If you can, I would appreciate
-              it.</p>
+            <p style="margin-bottom: 0.75rem;">2. Find the feature or idea you like best.</p>
+            <p style="margin-bottom: 0;">3. Hit the VOTE button and lock it in. We will count the votes and build the winner!</p>
           </div>
         </div>
       </div>
@@ -198,13 +189,12 @@
       </button>
     </section>
 
-    <!-- Interest Registration Form -->
+    <!-- Vote Registration Form -->
     <section class="form-section" id="interestFormSection">
       <div class="form-header">
         <img src="./public/koala_meditating.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
-        <h2>Register Interest</h2>
-        <p>Percentage returns are to be determined. I want zero hand-holding, I just need money to move. Let me put my
-          head down, work this all out and build, but I need to see who is able and willing to support me.</p>
+        <h2>Submit Your Vote</h2>
+        <p>Tell us what you want us to build next. The feature with the most votes will become our top priority! Leave your vote below, and optionally add any extra details or ideas.</p>
       </div>
 
       <form class="interest-form" id="investorForm">
@@ -218,53 +208,32 @@
           <input type="email" id="email" name="email" placeholder="john@example.com" required>
         </div>
 
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="+44 7000 000000" required>
-        </div>
-
-        <div class="form-group">
-          <label for="contact">Best way to contact</label>
-          <select id="contact" name="contact" required>
-            <option value="" disabled selected>Select method</option>
-            <option value="email">Email</option>
-            <option value="phone">Phone Call</option>
-            <option value="whatsapp">WhatsApp</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="location">Where you from?</label>
-          <input type="text" id="location" name="location" placeholder="City, Country" required>
-        </div>
-
-        <div class="form-group">
-          <label for="amount">Investment Tier</label>
+        <div class="form-group full-width">
+          <label for="amount">What should we build next?</label>
           <select id="amount" name="amount" required>
-            <option value="" disabled selected>Select amount</option>
-            <option value="10000">£10,000 (Seed)</option>
-            <option value="25000">£25,000 (Growth)</option>
-            <option value="50000">£50,000 (Velocity)</option>
-            <option value="gofundme">GoFundMe (Any Amount)</option>
-            <option value="other">Other Amount</option>
+            <option value="" disabled selected>Select your priority</option>
+            <option value="strategy">The Strategy Game</option>
+            <option value="social">The Social App</option>
+            <option value="content">The Content Platform</option>
+            <option value="wildcard">Wildcard (Other idea)</option>
           </select>
         </div>
 
         <div class="form-group full-width">
-          <label for="background">Other Details / Experience</label>
+          <label for="background">Tell us more (Optional)</label>
           <textarea id="background" name="background" rows="3"
-            placeholder="Tell us about your background or what interests you about FluentFast..."></textarea>
+            placeholder="Share any crazy ideas or specifically what you'd like to see..."></textarea>
         </div>
 
-        <button type="submit" class="submit-button">Send Interest</button>
+        <button type="submit" class="submit-button pulse-btn">Lock in my Vote</button>
       </form>
     </section>
 
     <div class="tiers-container">
-      <!-- GoFundMe Tier -->
+      <!-- Wildcard Tier -->
       <div class="tier-card" id="tierGoFundMe">
-        <div class="tier-name">GoFundMe</div>
-        <div class="tier-price" style="font-size: 2.2rem;">ANY NUMBER</div>
+        <div class="tier-name">Wildcard</div>
+        <div class="tier-price" style="font-size: 2.2rem;">ANY IDEA</div>
 
         <button class="tier-expand-btn">
           <span>DETAILS</span>
@@ -275,22 +244,21 @@
         </button>
 
         <div class="tier-details">
-          <div class="theme-box theme-learn">SUPPORT</div>
+          <div class="theme-box theme-learn">YOUR VISION</div>
           <ul class="execution-list">
-            <li>Any amount to support the vision.</li>
-            <li>Fuel for living expenses and momentum.</li>
-            <li>Help us run and go faster.</li>
+            <li>Have a crazy idea for language learning?</li>
+            <li>Submit your custom feature request.</li>
+            <li>If the community likes it, we build it.</li>
           </ul>
         </div>
 
-        <button class="invest-button pulse-btn"
-          onclick="window.location.href='https://gofund.me/815cb2b60'">GOFUNDME</button>
+        <button class="invest-button pulse-btn open-invest-modal" data-title="Wildcard" data-tier="wildcard">VOTE WILDCARD</button>
       </div>
 
-      <!-- 10,000 Tier -->
+      <!-- Strategy Tier -->
       <div class="tier-card" id="tierSeed">
-        <div class="tier-name">Seed</div>
-        <div class="tier-price"><span>£</span>10,000</div>
+        <div class="tier-name">The Strategy Game</div>
+        <div class="tier-price" style="font-size: 1.8rem;">DEEP LEARNING</div>
 
         <button class="tier-expand-btn">
           <span>DETAILS</span>
@@ -301,22 +269,22 @@
         </button>
 
         <div class="tier-details">
-          <div class="theme-box theme-learn">STAGE 1: BUILD</div>
+          <div class="theme-box theme-learn">IMMERSION SYSTEM</div>
           <ul class="execution-list">
-            <li>A bigger computer, software, and 3-4-5 phones to test on.</li>
-            <li>Living expenses (rent, food, moving) to buy time and focus.</li>
-            <li>Initial structural execution and fuel to make the engine turn on and run.</li>
+            <li>Complex language puzzles.</li>
+            <li>Resource management and world building.</li>
+            <li>Passive vocabulary acquisition.</li>
           </ul>
         </div>
 
         <button class="invest-button pulse-btn open-invest-modal"
-          data-stripe="https://buy.stripe.com/9B6cN40yoaaP3ut2SYdjO05">INVEST 10K</button>
+          data-title="Strategy Game" data-tier="strategy">VOTE STRATEGY</button>
       </div>
 
-      <!-- 25,000 Tier -->
+      <!-- Social Tier -->
       <div class="tier-card" id="tierGrowth">
-        <div class="tier-name">Growth</div>
-        <div class="tier-price"><span>£</span>25,000</div>
+        <div class="tier-name">The Social App</div>
+        <div class="tier-price" style="font-size: 1.8rem;">MULTIPLAYER</div>
 
         <button class="tier-expand-btn">
           <span>DETAILS</span>
@@ -327,21 +295,22 @@
         </button>
 
         <div class="tier-details">
-          <div class="theme-box theme-fast">STAGE 2: CLONE</div>
+          <div class="theme-box theme-fast">CONNECT TOGETHER</div>
           <ul class="execution-list">
-            <li>Rapid scaling and sheer momentum.</li>
-            <li>Force multipliers to make the operations move exponentially faster.</li>
+            <li>Real-time voice and text chat with friends.</li>
+            <li>Co-op mini games.</li>
+            <li>Compete on leaderboards and form clans.</li>
           </ul>
         </div>
 
         <button class="invest-button pulse-btn open-invest-modal"
-          data-stripe="https://buy.stripe.com/7sYcN46WM96Lfdb8didjO03">INVEST 25K</button>
+          data-title="Social App" data-tier="social">VOTE SOCIAL</button>
       </div>
 
-      <!-- 50,000 Tier -->
+      <!-- Content Tier -->
       <div class="tier-card" id="tierVelocity">
-        <div class="tier-name">Velocity</div>
-        <div class="tier-price"><span>£</span>50,000</div>
+        <div class="tier-name">Content Platform</div>
+        <div class="tier-price" style="font-size: 1.8rem;">STORIES & MEDIA</div>
 
         <button class="tier-expand-btn">
           <span>DETAILS</span>
@@ -352,73 +321,29 @@
         </button>
 
         <div class="tier-details">
-          <div class="theme-box theme-ultimate">STAGE 3: ENTERPRISE</div>
+          <div class="theme-box theme-ultimate">RICH MEDIA</div>
           <ul class="execution-list">
-            <li>Enterprise rollout.</li>
-            <li>Maximum velocity to go fast and capture the market immediately.</li>
+            <li>Interactive language stories.</li>
+            <li>Audio-guided immersion tracks.</li>
+            <li>Video content and cultural deep dives.</li>
           </ul>
         </div>
 
         <button class="invest-button pulse-btn open-invest-modal"
-          data-stripe="https://buy.stripe.com/5kQdR82Gw2In2qpgJOdjO02">INVEST 50K</button>
+          data-title="Content Platform" data-tier="content">VOTE CONTENT</button>
       </div>
     </div>
 
-    <div class="brand-gallery" id="stackedGallery">
-      <div class="gallery-item item-0">
-        <img src="./public/brand2.jpg" loading="lazy" alt="Brand Visual 1">
-      </div>
+    </div>
 
-      <div class="gallery-item item-2">
-        <img src="./public/brand1.jpg" loading="lazy" alt="Brand Image 2">
-      </div>
-      <div class="gallery-item item-3">
-        <img src="./public/brand4.jpg" loading="lazy" alt="Brand Image 3">
-      </div>
-      <div class="gallery-item item-4">
-        <img src="./public/brand3.jpg" loading="lazy" alt="Brand Image 4">
-      </div>
-      <div class="gallery-item item-5">
-        <img src="./public/brand5.jpg" loading="lazy" alt="Brand Image 5">
-      </div>
-      <div class="gallery-item item-6">
-        <img src="./public/new_concept1.jpg" loading="lazy" alt="New Concept 1">
-      </div>
-      <div class="gallery-item item-7">
-        <img src="./public/new_concept2.jpg" loading="lazy" alt="New Concept 2">
-      </div>
-      <div class="gallery-item item-8">
-        <img src="./public/new_concept3.png" loading="lazy" alt="New Concept 3">
-      </div>
-      <div class="gallery-item item-9">
-        <img src="./public/new_concept4.png" loading="lazy" alt="New Concept 4">
-      </div>
-      <div class="gallery-item item-10">
-        <img src="./public/new_concept5.png" loading="lazy" alt="New Concept 5">
-      </div>
-      <div class="gallery-item item-11">
-        <img src="./public/new_concept6.jpg" loading="lazy" alt="New Concept 6">
-      </div>
-      <div class="gallery-item item-12">
-        <img src="./public/new_concept7.jpg" loading="lazy" alt="New Concept 7">
-      </div>
-      <div class="gallery-item item-13">
-        <img src="./public/new_concept8.jpg" loading="lazy" alt="New Concept 8">
-      </div>
-      <div class="gallery-item item-14">
-        <img src="./public/new_concept9.jpg" loading="lazy" alt="New Concept 9">
-      </div>
-      <div class="gallery-item item-15">
-        <img src="./public/new_concept10.jpg" loading="lazy" alt="New Concept 10">
-      </div>
-      <div class="gallery-item item-16">
-        <img src="./public/comparison.png" loading="lazy" alt="Comparison Visual">
-      </div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 4rem; margin: 6rem auto; flex-wrap: wrap; max-width: 1200px; position:relative; z-index: 5;">
+      <img src="./public/koala_parachute.png" loading="lazy" alt="Koala Parachute Concept" style="max-height: 450px; width: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+      <img src="./public/koala_juggling.png" loading="lazy" alt="Koala Juggling Concept" style="max-height: 450px; width: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
     </div>
 
     <div class="contact-card">
-      <h3>SPEAK TO THE FOUNDER</h3>
-      <p class="contact-subtitle">Skip the bureaucracy. Direct line to the execution core.</p>
+      <h3>PITCH TO THE FOUNDER</h3>
+      <p class="contact-subtitle">Have a wild idea? Direct line to the execution core.</p>
 
       <div class="contact-details">
         <div class="contact-row">
@@ -457,7 +382,7 @@
     </footer>
   </div>
 
-  <!-- Investment Details Modal -->
+  <!-- Vote Details Modal -->
   <div id="investModalOverlay" class="modal-overlay hidden">
     <div class="modal-content">
       <button id="closeInvestModal" class="close-modal-btn" aria-label="Close modal">
@@ -470,19 +395,14 @@
 
       <div class="form-header">
         <img src="./public/koala_happy.png" loading="lazy" class="koala-form-guide" alt="Happy Koala">
-        <h2 id="modalTierTitle">Secure Allocation</h2>
-        <p>Please provide your details before proceeding to payment.</p>
+        <h2 id="modalTierTitle">Lock In Your Vote</h2>
+        <p>Please provide your details below to confirm your vote.</p>
 
         <div
           style="font-size: 0.95rem; margin-top: 1rem; color: #ffffff; background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); line-height: 1.6; text-align: left;">
-          <strong style="display: block; margin-bottom: 0.5rem; color: #ffffff; font-size: 1.05rem;">On Equity & Larger
-            Sums:</strong>
-          <p style="margin-bottom: 0.75rem;">Percentage returns are to be determined. I just need moving around money.
-          </p>
-          <p style="margin-bottom: 0.75rem;">I work quite hard, and I am confident I can create value, but I need fuel
-            to move and fix things up.</p>
-          <p style="margin-bottom: 0;">I just need to see who is able to support me. If you can, I would appreciate it.
-          </p>
+          <strong style="display: block; margin-bottom: 0.5rem; color: #ffffff; font-size: 1.05rem;">We listen to the community:</strong>
+          <p style="margin-bottom: 0.75rem;">We only build what you want us to build.</p>
+          <p style="margin-bottom: 0;">Leave a comment if there's anything specifically you want to see included in this feature!</p>
         </div>
       </div>
 
@@ -511,23 +431,33 @@
             <label for="flowEmail">Email Address</label>
             <input type="email" id="flowEmail" name="email" placeholder="john@example.com" required>
           </div>
+        <div class="form-group checkbox-group full-width"
+          style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+          <label
+            style="display: flex; align-items: center; gap: 10px; cursor: pointer; justify-content: center; font-weight: 700; color: var(--brand-light); flex-wrap: wrap; text-align: center;">
+            <input type="checkbox" id="anonymousDonationMode" name="anonymous"
+              style="width: 20px; height: 20px; accent-color: var(--brand-light);">
+            Make this an anonymous vote!
+          </label>
+        </div>
+
+        <div id="investorRequiredFields" style="transition: all 0.3s ease; display: contents;">
           <div class="form-group">
-            <label for="flowPhone">Phone Number</label>
-            <input type="tel" id="flowPhone" name="phone" placeholder="+44 7000 000000" required>
+            <label for="flowFirstName">First Name</label>
+            <input type="text" id="flowFirstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="flowLastName">Last Name</label>
+            <input type="text" id="flowLastName" name="lastName" placeholder="Doe" required>
           </div>
 
           <div class="form-group full-width">
-            <label for="flowContact">Best way to contact</label>
-            <select id="flowContact" name="contact" required>
-              <option value="" disabled selected>Select method</option>
-              <option value="email">Email</option>
-              <option value="phone">Phone Call</option>
-              <option value="whatsapp">WhatsApp</option>
-            </select>
+            <label for="flowEmail">Email Address</label>
+            <input type="email" id="flowEmail" name="email" placeholder="john@example.com" required>
           </div>
         </div>
 
-        <button type="submit" class="submit-button pulse-btn" id="flowSubmitBtn">PROCEED TO PAYMENT</button>
+        <button type="submit" class="submit-button pulse-btn" id="flowSubmitBtn">CONFIRM MY VOTE</button>
       </form>
     </div>
   </div>
@@ -608,30 +538,23 @@
     investorForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const selectedAmount = document.getElementById('amount').value;
       const submitBtn = investorForm.querySelector('.submit-button');
-      
-      if (selectedAmount === 'gofundme') {
-          // Instant redirect, no delay or fake loading needed for GoFundMe selections
-          window.location.href = 'https://gofund.me/815cb2b60';
-          return;
-      }
       
       const originalText = submitBtn.innerText;
 
       // Polish: Loading State
       submitBtn.disabled = true;
-      submitBtn.innerText = 'SENDING...';
+      submitBtn.innerText = 'SENDING VOTE...';
       submitBtn.style.opacity = '0.7';
 
       // Simulate high-fidelity submission
       setTimeout(() => {
-        submitBtn.innerText = '✓ SENT SUCCESSFULLY';
+        submitBtn.innerText = '✓ VOTE CAST!';
         submitBtn.style.background = 'var(--brand-light)';
         submitBtn.style.opacity = '1';
 
         setTimeout(() => {
-          alert('Interest registered! We will contact you soon.');
+          alert('Vote submitted! Thanks for helping us shape FluentFast.');
 
           investorForm.reset();
 
@@ -643,39 +566,11 @@
           // Collapse form
           formSection.classList.remove('expanded');
           toggleBtn.classList.remove('active');
-          toggleBtn.querySelector('span').innerText = 'Register Interest';
+          toggleBtn.querySelector('span').innerText = 'Cast Your Vote';
           window.scrollTo({ top: 0, behavior: 'smooth' });
 
         }, 2000);
       }, 1500);
-    });
-
-    // Dynamic bypass for GoFundMe dropdown selection to skip the signup form
-    const amountDropdown = document.getElementById('amount');
-    const investorFormInputs = document.querySelectorAll('#investorForm .form-group:not(:has(#amount))');
-    const investorSubmitBtn = document.querySelector('#investorForm .submit-button');
-    
-    amountDropdown.addEventListener('change', (e) => {
-        if (e.target.value === 'gofundme') {
-            // Hide signup details and remove required attributes
-            investorFormInputs.forEach(el => {
-                el.style.display = 'none';
-                const inputs = el.querySelectorAll('input, select, textarea');
-                inputs.forEach(input => input.removeAttribute('required'));
-            });
-            investorSubmitBtn.innerText = 'PROCEED TO GOFUNDME';
-        } else {
-            // Restore signup details and required attributes
-            investorFormInputs.forEach(el => {
-                el.style.display = '';
-                const inputs = el.querySelectorAll('input, select, textarea');
-                inputs.forEach(input => {
-                    // Only background is optional
-                    if(input.id !== 'background') input.setAttribute('required', 'true');
-                });
-            });
-            investorSubmitBtn.innerText = 'Send Interest';
-        }
     });
 
     // Investment Flow Modal Logic
@@ -686,18 +581,13 @@
     const investorRequiredFields = document.getElementById('investorRequiredFields');
     const modalTierTitle = document.getElementById('modalTierTitle');
 
-    let currentStripeLink = '';
-
     document.querySelectorAll('.open-invest-modal').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        currentStripeLink = btn.getAttribute('data-stripe');
-
+        
         // Update modal title to show which tier they're dealing with
-        if (currentStripeLink.includes('O05')) modalTierTitle.innerText = "Seed Tier (£10k)";
-        else if (currentStripeLink.includes('O03')) modalTierTitle.innerText = "Growth Tier (£25k)";
-        else if (currentStripeLink.includes('O02')) modalTierTitle.innerText = "Velocity Tier (£50k)";
-        else modalTierTitle.innerText = "Secure Allocation";
+        const title = btn.getAttribute('data-title') || 'Your Idea';
+        modalTierTitle.innerText = "Vote for " + title;
 
         investModalOverlay.classList.remove('hidden');
         // trigger reflow
@@ -744,17 +634,17 @@
 
       // UX Feedback
       btn.disabled = true;
-      btn.innerText = 'PROCESSING...';
+      btn.innerText = 'CASTING VOTE...';
       btn.style.opacity = '0.7';
 
-      // Simulate capturing data then redirecting
+      // Simulate capturing data
       setTimeout(() => {
-        btn.innerText = 'REDIRECTING...';
+        btn.innerText = '✓ VOTE CONFIRMED';
         btn.style.background = 'var(--brand-light)';
         btn.style.opacity = '1';
 
         setTimeout(() => {
-          window.location.href = currentStripeLink;
+          alert('Vote locked in! Thank you.');
 
           // Reset after short delay in case user hits back
           setTimeout(() => {
@@ -768,7 +658,7 @@
             investorRequiredFields.style.opacity = '1';
             investorRequiredFields.style.pointerEvents = 'auto';
             investorRequiredFields.querySelectorAll('input, select').forEach(i => i.setAttribute('required', 'required'));
-          }, 1000);
+          }, 500);
         }, 1000);
       }, 1000);
     });

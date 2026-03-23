@@ -121,6 +121,14 @@ function initializeObservers() {
     
     // Initialize scroll scale manually upon final load
     updateScrollScale();
+    
+    if (typeof initVotingBoard === 'function') {
+        initVotingBoard();
+    }
+    
+    if (typeof createParticles === 'function') {
+        createParticles();
+    }
 }
 
 if (document.readyState === 'loading') {
@@ -162,3 +170,127 @@ const scrollHandler = () => {
 };
 window.addEventListener('scroll', scrollHandler, { passive: true });
 window.addEventListener('resize', scrollHandler, { passive: true });
+
+// --- Voting Board Logic (Matrix Style) ---
+const matrixData = [
+    { id: 'v1', category: 'languages', title: 'Japanese Course Expansion', desc: 'Kanji integration, stroke orders' },
+    { id: 'v2', category: 'games', title: 'Speed Vocab Matchmaking', desc: '1v1 real-time competitive vocab' },
+    { id: 'v3', category: 'voices', title: 'Scottish Highlander Koala', desc: 'Authentic aggressive audio' },
+    { id: 'v4', category: 'languages', title: 'Spanish (Latin America)', desc: 'Mexican/Colombian specifics' },
+    { id: 'v5', category: 'games', title: 'Co-op Story Puzzles', desc: 'Solve mysteries via translated clues' },
+    { id: 'v6', category: 'voices', title: 'Australian Surfer Koala', desc: 'Chilled out dude accent' },
+    { id: 'v7', category: 'core', title: 'Offline Mode Sync', desc: 'Download lessons for flights' }
+];
+
+const selectedFeatures = new Set();
+
+function renderMatrixItems(filter = 'all') {
+    const container = document.getElementById('matrixContainer');
+    if (!container) return;
+
+    const filtered = matrixData.filter(item => filter === 'all' || item.category === filter);
+
+    container.innerHTML = filtered.map(item => {
+        const isChecked = selectedFeatures.has(item.id) ? 'checked' : '';
+        const activeClass = isChecked ? 'active' : '';
+
+        return `
+            <div class="matrix-item ${activeClass}" id="matrix-item-${item.id}">
+                <div class="matrix-info">
+                    <h4>${item.title}</h4>
+                    <p>${item.desc}</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" onchange="toggleFeature('${item.id}', this.checked)" ${isChecked}>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        `;
+    }).join('');
+}
+
+window.toggleFeature = function(id, isChecked) {
+    if (typeof playClickSound === 'function') playClickSound();
+
+    const itemElement = document.getElementById(`matrix-item-${id}`);
+    
+    if (isChecked) {
+        selectedFeatures.add(id);
+        if (itemElement) itemElement.classList.add('active');
+    } else {
+        selectedFeatures.delete(id);
+        if (itemElement) itemElement.classList.remove('active');
+    }
+}
+
+window.initVotingBoard = function() {
+    renderMatrixItems('all');
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (typeof playClickSound === 'function') playClickSound();
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderMatrixItems(btn.dataset.filter);
+        });
+    });
+
+    // Form submission
+    const submitForm = document.getElementById('matrixSubmitForm');
+    const emailInput = document.getElementById('matrixEmail');
+    
+    if (submitForm) {
+        submitForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (typeof playClickSound === 'function') playClickSound();
+            
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            if (selectedFeatures.size === 0) {
+                alert('Please toggle at least one feature before submitting!');
+                return;
+            }
+
+            console.log('User Email:', email);
+            console.log('Selected Features:', Array.from(selectedFeatures));
+            
+            alert(`Thanks! We've locked in your ${selectedFeatures.size} feature selections under ${email}.`);
+            
+            // Reset
+            emailInput.value = '';
+            selectedFeatures.clear();
+            renderMatrixItems(document.querySelector('.filter-btn.active')?.dataset.filter || 'all');
+        });
+    }
+}
+
+// --- Dynamic Particle Effects ---
+window.createParticles = function() {
+    const container = document.getElementById('particles-container');
+    if (!container) return;
+
+    const particleCount = 25; // Adjusted to avoid overwhelming user, keeps it subtle
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'sparkle-particle';
+
+        // Randomize physics
+        const size = Math.random() * 3 + 1; // 1px to 4px
+        const left = Math.random() * 100; // 0% to 100%
+        const animationDuration = Math.random() * 10 + 6; // 6s to 16s
+        const delay = Math.random() * 8; // 0s to 8s
+        const maxOpacity = Math.random() * 0.5 + 0.1; // 0.1 to 0.6
+
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${left}vw`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.setProperty('--duration', `${animationDuration}s`);
+        particle.style.setProperty('--max-opacity', maxOpacity);
+
+        container.appendChild(particle);
+    }
+}
+

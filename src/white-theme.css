@@ -1,0 +1,136 @@
+/* White Theme Overrides - Dynamic Application */
+
+/* Ensure paragraphs and sub-text are a legible dark gray */
+.message-section p, 
+.accordion-content,
+.contact-subtitle,
+.tier-details,
+.execution-list li,
+.vote-item-content p,
+.form-header p {
+  color: rgba(15, 18, 37, 0.8) !important;
+}
+
+/* Ensure headings and core text are deep navy */
+header,
+.brand-motivation,
+h1.title-animated .word-group,
+.message-section h3,
+.accordion-header h3,
+.contact-card h3,
+.tier-name,
+.tier-price,
+.form-header h2,
+.form-group label {
+  color: var(--deep-navy) !important;
+  text-shadow: none !important;
+}
+
+/* Redefine brand-text to pop on white */
+.brand-text .fluent {
+  background: var(--royal-blue) !important;
+  color: #FFF !important;
+  padding: 0 15px;
+  border-radius: 12px;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  text-shadow: none !important;
+  animation: none !important;
+  box-shadow: 0 10px 20px rgba(89, 86, 214, 0.3) !important;
+}
+
+.brand-text .fast {
+  background: none !important;
+  color: var(--royal-blue) !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  text-shadow: none !important;
+  animation: none !important;
+}
+
+.brand-tagline {
+  color: var(--deep-navy) !important;
+  text-shadow: none !important;
+  border-bottom: 6px solid var(--brand-light);
+  display: inline-block;
+  line-height: 0.9;
+  padding-bottom: 5px;
+}
+
+/* Make particles blue so they are visible on white */
+.sparkle-particle {
+  background-color: var(--royal-blue) !important;
+  box-shadow: 0 0 15px 5px rgba(89, 86, 214, 0.3) !important;
+}
+
+/* Matrix Text */
+.matrix-theme h3 { color: var(--deep-navy) !important; text-shadow: none !important; font-size: 2.2rem !important; }
+.matrix-theme p { color: rgba(15, 18, 37, 0.7) !important; text-shadow: none !important; }
+
+/* Filter Buttons */
+.filter-btn {
+  background: transparent !important;
+  border: 1px solid rgba(89, 86, 214, 0.3) !important;
+  color: var(--deep-navy) !important;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--royal-blue) !important;
+  color: #FFF !important;
+}
+
+/* Base Cards & Sections need to pop against the off-white background with pure white */
+.tier-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(89, 86, 214, 0.2) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05) !important;
+}
+
+.contact-card, .form-section {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(89, 86, 214, 0.2) !important;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.08) !important;
+}
+
+.accordion {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(89, 86, 214, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
+}
+
+/* Theme tags */
+.theme-box {
+  background: rgba(89, 86, 214, 0.1) !important;
+  color: var(--royal-blue) !important;
+}
+
+/* Special case for the "How it Works" box */
+.isolate-quote .accordion-content div {
+  background: rgba(89, 86, 214, 0.05) !important;
+  color: rgba(15, 18, 37, 0.85) !important;
+  border-color: rgba(89, 86, 214, 0.2) !important;
+}
+
+/* Form Styles */
+#amount, #name, #email, #background {
+  background: #F8F9FA !important;
+  color: var(--deep-navy) !important;
+  border: 2px solid rgba(15, 18, 37, 0.1) !important;
+}
+#amount:focus, #name:focus, #email:focus, #background:focus {
+  border-color: var(--royal-blue) !important;
+  background: #FFFFFF !important;
+}
+
+.accordion-icon {
+  color: var(--royal-blue) !important;
+}
+
+.tier-expand-btn {
+  color: var(--royal-blue) !important;
+  background: rgba(89, 86, 214, 0.1) !important;
+}
+
+/* Hide old gradient entirely */
+.bg-gradient {
+  display: none !important;
+}

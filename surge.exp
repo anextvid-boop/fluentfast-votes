@@ -1,4 +1,4 @@
-spawn npx -y surge --project dist --domain fluentfast-investor-portal-anextvid.surge.sh
+spawn npx -y surge --project dist --domain fluentfast-votes-anextvid.surge.sh
 expect "email:"
 send "anextvid-fluent@fluentfast.com\r"
 expect "password:"
