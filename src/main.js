@@ -192,18 +192,14 @@ function renderMatrixItems(filter = 'all') {
 
     container.innerHTML = filtered.map(item => {
         const isChecked = selectedFeatures.has(item.id) ? 'checked' : '';
-        const activeClass = isChecked ? 'active' : '';
+        const activeClass = isChecked ? 'active-selection' : '';
 
         return `
-            <div class="matrix-item ${activeClass}" id="matrix-item-${item.id}">
-                <div class="matrix-info">
+            <div class="matrix-block ${activeClass}" id="matrix-item-${item.id}" onclick="toggleFeature('${item.id}', !this.classList.contains('active-selection'))">
+                <div class="matrix-info-centered">
                     <h4>${item.title}</h4>
-                    <p>${item.desc}</p>
+                    <p class="matrix-desc-faint">${item.desc}</p>
                 </div>
-                <label class="switch">
-                    <input type="checkbox" onchange="toggleFeature('${item.id}', this.checked)" ${isChecked}>
-                    <span class="slider"></span>
-                </label>
             </div>
         `;
     }).join('');
@@ -216,10 +212,10 @@ window.toggleFeature = function(id, isChecked) {
     
     if (isChecked) {
         selectedFeatures.add(id);
-        if (itemElement) itemElement.classList.add('active');
+        if (itemElement) itemElement.classList.add('active-selection');
     } else {
         selectedFeatures.delete(id);
-        if (itemElement) itemElement.classList.remove('active');
+        if (itemElement) itemElement.classList.remove('active-selection');
     }
 }
 
