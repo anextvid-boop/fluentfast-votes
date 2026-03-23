@@ -148,7 +148,7 @@ body {
   /* Use strictly brand3 as a repeating tile explicitly requested */
   background-image: url('../public/brand3.jpg');
   /* Size it to roughly 3-4 columns wide to enforce the repeating pattern */
-  background-size: 300px auto;
+  background-size: 200px auto;
   background-position: top left;
   background-repeat: repeat; 
   background-attachment: fixed;
@@ -180,13 +180,13 @@ body::before, body::after, html::before, html::after {
 
 /* Contact Links & Footer Inversion */
 .contact-link {
-  color: var(--royal-blue) !important;
+  color: #FFFFFF !important;
   text-shadow: none !important;
   font-weight: 600 !important;
 }
 
 .contact-link:hover {
-  background: rgba(89, 86, 214, 0.1) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 .footer-logo {
@@ -241,6 +241,7 @@ body::before, body::after, html::before, html::after {
   padding: 4rem 1rem !important;
   margin-top: 5rem !important;
   margin-bottom: 5rem !important;
+  border-radius: 0 !important;
   z-index: 10;
 }
 
