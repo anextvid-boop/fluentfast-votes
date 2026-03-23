@@ -145,16 +145,18 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* Single massive image to prevent patchy multi-layer rendering issues on mobile WebKit */
-  background-image: url('../public/new_concept7.jpg');
-  background-size: cover;
-  background-position: center;
+  /* Use strictly brand3 as a repeating tile explicitly requested */
+  background-image: url('../public/brand3.jpg');
+  /* Size it to roughly 3-4 columns wide to enforce the repeating pattern */
+  background-size: 300px auto;
+  background-position: top left;
+  background-repeat: repeat; 
   background-attachment: fixed;
   z-index: 0; 
   /* Boosted to incredibly high visibility */
   opacity: 0.35; 
   pointer-events: none;
-  /* Wash the entire collage down into a unified brand-blue tint without crashing WebKit mix-blends */
+  /* Wash the entire collage down into a unified brand-blue tint */
   filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(400%) contrast(1.1) brightness(1.1);
 }
 
