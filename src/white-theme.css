@@ -136,7 +136,7 @@ h1.title-animated .word-group,
 }
 
 body {
-  background-color: transparent !important;
+  background-color: #F8F9FA !important;
 }
 
 .parallax-bg {
@@ -145,25 +145,25 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* Image managed entirely via CSS to ensure Vite's base mapping captures it! */
-  background-image: url('../public/uploaded_media_1774293882547.jpg');
+  background-image: url('../public/uploaded_media_1774293882547.jpg'); /* This image serves as the collage of app screens */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  z-index: -2;
-  /* Heavily increased filter opacity logic to make it fainter to the wash and more backgroundy */
-  filter: grayscale(100%) opacity(0.2) contrast(1.1) brightness(1.2);
+  z-index: 0; /* Keep it below the container, but above the background color */
+  opacity: 0.12; 
+  pointer-events: none;
+  /* Convert to grayscale, then sepia, then push hue to royal blue (approx 220deg from sepia yellow) */
+  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(300%) contrast(1.2);
+  mix-blend-mode: multiply; /* Blends harmoniously with the #f8f9fa body */
+}
+
+.container {
+  position: relative;
+  z-index: 2; /* Force container above the parallax */
 }
 
 .parallax-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(248, 249, 250, 0.95);
-  z-index: -1;
-  pointer-events: none;
+  display: none !important;
 }
 
 body::before, body::after, html::before, html::after {
