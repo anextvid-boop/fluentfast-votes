@@ -145,12 +145,12 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* Use strictly brand3 as a repeating tile explicitly requested */
+  /* Use strictly brand3 as a vertically repeating tile */
   background-image: url('../public/brand3.jpg');
-  /* Size it to roughly 3-4 columns wide to enforce the repeating pattern */
-  background-size: 200px auto;
-  background-position: top left;
-  background-repeat: repeat; 
+  /* 1 by 1 going down */
+  background-size: 100vw auto;
+  background-position: top center;
+  background-repeat: repeat-y; 
   background-attachment: fixed;
   z-index: 0; 
   /* Boosted to incredibly high visibility */
@@ -229,26 +229,77 @@ body::before, body::after, html::before, html::after {
   }
 }
 
-/* Special Case: Massive Blue Page Breaks */
-/* Make Matrix Blue, Contact/Footer Blue. Ensure pitchBox is white! */
-.voting-board-section, .contact-card {
+/* ==================================================
+   NEW SECTION-BY-SECTION FULL BLEED SANDWICH LAYOUT
+   ================================================== */
+
+/* 1. White Sections (Header, Voting Board, Forms) */
+header, .voting-board-section, #interestFormSection {
+  position: relative;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 100vmax #FFFFFF;
+  clip-path: inset(0 -100vmax);
+  z-index: 10;
+  padding: 4rem 1rem !important; 
+  margin: 0 !important;
+}
+
+/* Re-adjust Header special case */
+header {
+  padding-top: 1rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* 2. Blue Sections (Play/Learn Block, Footer) */
+.play-learn-block, .contact-card {
   position: relative;
   background: var(--royal-blue) !important;
   color: #FFF !important;
-  /* Break the container constraints to make it full screen width */
   box-shadow: 0 0 0 100vmax var(--royal-blue);
   clip-path: inset(0 -100vmax);
-  padding: 4rem 1rem !important;
-  margin-top: 5rem !important;
-  margin-bottom: 5rem !important;
+  padding: 5rem 1rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   border-radius: 0 !important;
   z-index: 10;
 }
 
-.voting-board-section .message-section h3,
-.voting-board-section .message-section p,
+/* 3. Transparent Pattern Reveal Sections (Hero mockups, Pitch Box, Spacers) */
+.hero-content, .action-buttons-container, #pitchBox, .tiers-container, .spacer-pattern {
+  position: relative;
+  background: transparent !important;
+  z-index: 5;
+  padding: 4rem 1rem;
+}
+
+/* ------------------------------------------
+   Section Content Color Overrides 
+   ------------------------------------------ */
+
+/* White Sections: Restore dark text */
+.voting-board-section .message-section h3 {
+  color: var(--deep-navy) !important;
+  text-shadow: none !important;
+}
+.voting-board-section .message-section p {
+  color: var(--navy-light) !important;
+  text-shadow: none !important;
+}
+.voting-board-section .filter-btn {
+  border-color: rgba(15,18,37,0.2) !important;
+  color: var(--deep-navy) !important;
+}
+.voting-board-section .filter-btn.active, .voting-board-section .filter-btn:hover {
+  background: var(--royal-blue) !important;
+  color: #FFFFFF !important;
+}
+
+/* Blue Sections: Force bright white */
+.play-learn-block h1,
+.play-learn-block .word-group,
 .contact-card h3,
 .contact-card p,
+.contact-card .contact-details,
 .contact-card .contact-link,
 .footer-logo,
 .footer-logo .fast,
@@ -259,16 +310,6 @@ body::before, body::after, html::before, html::after {
 
 .contact-card .contact-details {
   border-top-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-.filter-btn {
-  border-color: rgba(255,255,255,0.4) !important;
-  color: #FFFFFF !important;
-}
-
-.filter-btn.active, .filter-btn:hover {
-  background: #FFFFFF !important;
-  color: var(--royal-blue) !important;
 }
 
 .filter-btn {
