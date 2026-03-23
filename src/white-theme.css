@@ -111,7 +111,7 @@ h1.title-animated .word-group,
 }
 
 /* Form Styles */
-#amount, #name, #email, #background {
+#amount, #name, #email, #background, #matrixEmail {
   background: #F8F9FA !important;
   color: var(--deep-navy) !important;
   border: 2px solid rgba(15, 18, 37, 0.1) !important;
@@ -149,12 +149,12 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  z-index: 0; /* Keep it below the container, but above the background color */
-  opacity: 0.12; 
+  z-index: 0; 
+  /* Drastically boosted visibility to ensure it can never be missed across devices */
+  opacity: 0.65; 
   pointer-events: none;
-  /* Convert to grayscale, then sepia, then push hue to royal blue (approx 220deg from sepia yellow) */
-  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(300%) contrast(1.2);
-  mix-blend-mode: multiply; /* Blends harmoniously with the #f8f9fa body */
+  filter: grayscale(100%) opacity(0.4) contrast(1.1) brightness(1.6);
+  mix-blend-mode: luminosity; /* Use luminosity layer so it gracefully drops behind the text without blowing out */
 }
 
 .container {
@@ -226,21 +226,76 @@ body::before, body::after, html::before, html::after {
   }
 }
 
+/* Special Case: Massive Blue Page Break for Matrix */
+.voting-board-section {
+  position: relative;
+  background: var(--royal-blue) !important;
+  color: #FFF !important;
+  /* Break the container constraints to make it full screen width */
+  box-shadow: 0 0 0 100vmax var(--royal-blue);
+  clip-path: inset(0 -100vmax);
+  padding: 4rem 1rem !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+  z-index: 10;
+}
+
+.voting-board-section .message-section h3,
+.voting-board-section .message-section p {
+  color: #FFFFFF !important;
+}
+
+.filter-btn {
+  border-color: rgba(255,255,255,0.4) !important;
+  color: #FFFFFF !important;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: #FFFFFF !important;
+  color: var(--royal-blue) !important;
+}
+
 .matrix-block {
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid rgba(89, 86, 214, 0.15);
+  background: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   padding: 1.5rem 1rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
   min-height: 140px; 
 }
+
+.matrix-block.active-selection {
+  background: #0F1225 !important;
+  border: 2px solid #FFFFFF !important;
+}
+
+.matrix-info-centered h4 {
+  color: var(--deep-navy);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.matrix-block.active-selection h4 {
+  color: #FFFFFF !important;
+}
+
+.matrix-desc-faint {
+  color: rgba(15, 18, 37, 0.6);
+}
+
+.matrix-block.active-selection .matrix-desc-faint {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
 
 .matrix-block:hover {
   transform: translateY(-4px);
