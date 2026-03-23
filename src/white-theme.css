@@ -144,25 +144,46 @@ body {
   100% { background-position: center 300vh; }
 }
 
+@keyframes posterTextScroll {
+  0% { transform: translate(-50%, 0); }
+  100% { transform: translate(-50%, -100%); }
+}
+
 .parallax-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* Use strictly brand3 as a vertically repeating tile */
   background-image: url('../public/brand3.jpg');
-  /* 1 by 1 going down */
   background-size: 100vw auto;
   background-position: top center;
   background-repeat: repeat-y; 
-  animation: slowParallaxFall 90s linear infinite;
+  animation: slowParallaxFall 45s linear infinite;
   z-index: 0; 
-  /* Boosted to incredibly high visibility */
-  opacity: 0.35; 
-  pointer-events: none;
-  /* Wash the entire collage down into a unified brand-blue tint */
+  opacity: 0.35;
   filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(400%) contrast(1.1) brightness(1.1);
+  pointer-events: none;
+}
+
+.backdrop-poster-text {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: 1;
+  color: var(--royal-blue);
+  opacity: 0.15;
+  font-family: var(--font-display);
+  font-size: 25vw;
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -5px;
+  text-transform: uppercase;
+  text-align: center;
+  pointer-events: none;
+  animation: posterTextScroll 120s linear infinite;
 }
 
 .container {
