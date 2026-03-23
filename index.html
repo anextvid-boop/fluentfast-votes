@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/fluentfast-votes/assets/favicon-Bs_r76O8.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOTES | FluentFast</title>
+  <link rel="preload" href="./Koalas_flying.json" as="fetch" type="application/json" crossorigin="anonymous" />
+  <link rel="preload" href="/fluentfast-votes/assets/brand3-BU96RFG6.jpg" as="image" fetchpriority="high" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+  <script type="module" crossorigin src="/fluentfast-votes/assets/index-Cv4ncARa.js"></script>
+  <link rel="stylesheet" crossorigin href="/fluentfast-votes/assets/index-B8XgGCPC.css">
+</head>
+
+<body>
+  <div id="particles-container"></div>
+  <div class="bg-gradient"></div>
+
+  <div class="container">
+    <header style="position: relative;">
+      <div class="brand-header">
+        <div id="hero-lottie" class="header-lottie-koala floating">
+          <!-- Lottie injects SVG here natively -->
+        </div>
+        <div class="brand-text">
+          <span class="fluent">FLUENT</span><span class="fast">FAST</span>
+        </div>
+        <div class="brand-tagline">
+          <span class="inv-char">V</span><span class="inv-char">O</span><span class="inv-char">T</span><span
+            class="inv-char">E</span><span class="inv-char">S</span>
+        </div>
+        <div class="brand-motivation">"WHAT DO WE BUILD NEXT?"</div>
+
+        <div class="hero-brand-image" style="display: flex; justify-content: center; align-items: center; gap: 2rem;">
+          <img src="/fluentfast-votes/assets/fluentfast_koala-CNBxPSQX.png" fetchpriority="high" alt="Koala Mascot 1" style="width: auto; max-height: 250px; border-radius: 0; box-shadow: none;">
+          <img src="/fluentfast-votes/assets/koala_meditating-mjUjFY_9.png" fetchpriority="high" alt="Koala Mascot 2" style="width: auto; max-height: 250px; border-radius: 0; box-shadow: none; object-position: center;">
+        </div>
+      </div>
+
+      <h1 class="title-animated">
+        <span class="word-group">PLAY.</span>
+        <span class="word-group">LEARN.</span>
+        <span class="word-group">SPEAK.</span>
+        <span class="word-group" style="color: var(--royal-blue) !important;">TOGETHER.</span>
+      </h1>
+
+
+    </header>
+
+    <!-- Interactive Community Feature Board (Matrix Style) -->
+    <section class="voting-board-section hidden-reveal matrix-theme" style="margin-top: 2rem; margin-bottom: 3rem;">
+      <div class="message-section" style="padding-top: 0; padding-bottom: 1rem;">
+        <h3 style="color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); font-family: var(--font-display); font-size: 2rem; font-weight: 900;">WHAT SHOULD WE BUILD?</h3>
+        <p style="color: rgba(255,255,255,0.9); text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Toggle the features you want and submit your choices below.</p>
+      </div>
+
+      <div class="voting-filters">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="games">GAMES</button>
+        <button class="filter-btn" data-filter="voices">CHARACTERS</button>
+        <button class="filter-btn" data-filter="languages">LANGUAGES</button>
+      </div>
+
+      <div class="matrix-grid" id="matrixContainer">
+        <!-- JS will populate matrix switch items here -->
+      </div>
+
+      <div class="matrix-submit-section">
+         <form id="matrixSubmitForm">
+            <input type="email" id="matrixEmail" placeholder="Enter email to lock votes" required>
+            <button type="submit" class="pulse-btn matrix-submit-btn">SUBMIT SELECTIONS</button>
+         </form>
+      </div>
+    </section>
+
+    <!-- Action Buttons Container -->
+    <div class="action-buttons-container">
+      <button class="form-loader-btn" id="togglePitch">
+        <span>About Voting</span>
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+
+      <button class="form-loader-btn" id="toggleInterest">
+        <span>Cast Your Vote</span>
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Expanded Pitch Details -->
+    <section class="form-section" id="pitchBox">
+      <div class="message-section intro-visible">
+        <p>
+          <strong>FluentFast App</strong><br>
+          No.1 Multiplayer Language Launcher.<br>
+          <br>
+          We are building the future of language learning, but we need your help to decide what comes next.<br>
+          We don't want to make assumptions. We want pure community direction.<br>
+          <br>
+          Cast your vote on what you want to see, and if you have a crazy idea, let us know!
+        </p>
+      </div>
+
+      <div class="message-section accordion">
+        <div class="accordion-header">
+          <h3>The App: FluentFast</h3>
+          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <p style="margin-bottom: 0.8rem;">A multiplayer language learning app.</p>
+          <p style="margin-bottom: 0.8rem;">Encouraging, fun, and built to play with friends.</p>
+          <p style="margin-bottom: 1.5rem;">Aiming to create a rich, immersive language learning environment through
+            peer-to-peer learning.</p>
+
+          <p style="margin-bottom: 0.8rem;">Immersion is the best form of learning... but what if you can't travel?</p>
+          <p style="margin-bottom: 1.5rem;">This app aims to bring the immersive experience to you.</p>
+
+          <p style="margin-bottom: 0.8rem;">When learning with friends, you also practice with friends... Learning
+            <strong>fluent faster</strong> together.</p>
+          <p style="margin-bottom: 0.8rem;">Able to learn off the app also, with friends. Maybe with family.</p>
+          <p>We have multiple paths we can execute, we just need to know which one you want the most.</p>
+        </div>
+      </div>
+
+      <div class="message-section accordion">
+        <div class="accordion-header">
+          <h3>Why We Need Your Vote</h3>
+          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <p style="margin-bottom: 0.8rem;"><strong>Direction is everything.</strong></p>
+          <ul style="align-items: flex-start; margin: 0 auto 1.5rem; width: max-content; text-align: left;">
+            <li>We have the skills to build any of these paths</li>
+            <li>We want to build what people actually want</li>
+            <li>We can pivot based on your feedback</li>
+          </ul>
+
+          <p style="margin-bottom: 0.8rem;"><strong>What you can vote on:</strong></p>
+          <ul style="align-items: flex-start; margin: 0 auto 1.5rem; width: max-content; text-align: left;">
+            <li>The Strategy Game</li>
+            <li>The Social App</li>
+            <li>The Content Platform</li>
+            <li>And your own wild ideas!</li>
+          </ul>
+
+          <p style="margin-bottom: 0.8rem; color: var(--brand-light); font-weight: bold; font-style: italic;">Let's make something awesome together... 🤔</p>
+        </div>
+      </div>
+
+      <div class="message-section isolate-quote accordion">
+        <div class="accordion-header">
+          <h3>How it Works</h3>
+          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <div
+            style="font-size: 0.95rem; margin-top: 0.5rem; color: #ffffff; background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); line-height: 1.6; text-align: left;">
+            <p style="margin-bottom: 0.75rem;">1. Review the options below.
+            </p>
+            <p style="margin-bottom: 0.75rem;">2. Find the feature or idea you like best.</p>
+            <p style="margin-bottom: 0;">3. Hit the VOTE button and lock it in. We will count the votes and build the winner!</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="fast-close-btn" id="fastClosePitch">
+        CLOSE DETAILS
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+    </section>
+
+    <!-- Vote Registration Form -->
+    <section class="form-section" id="interestFormSection">
+      <div class="form-header">
+        <img src="/fluentfast-votes/assets/koala_meditating-mjUjFY_9.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
+        <h2>Submit Your Vote</h2>
+        <p>Tell us what you want us to build next. The feature with the most votes will become our top priority! Leave your vote below, and optionally add any extra details or ideas.</p>
+      </div>
+
+      <form class="interest-form" id="investorForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="amount">What should we build next?</label>
+          <select id="amount" name="amount" required>
+            <option value="" disabled selected>Select your priority</option>
+            <option value="strategy">The Strategy Game</option>
+            <option value="social">The Social App</option>
+            <option value="content">The Content Platform</option>
+            <option value="wildcard">Wildcard (Other idea)</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="background">Tell us more (Optional)</label>
+          <textarea id="background" name="background" rows="3"
+            placeholder="Share any crazy ideas or specifically what you'd like to see..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-button pulse-btn">Lock in my Vote</button>
+      </form>
+    </section>
+
+    <div class="tiers-container">
+      <!-- Wildcard Tier -->
+      <div class="tier-card" id="tierGoFundMe">
+        <div class="tier-name">Wildcard</div>
+        <div class="tier-price" style="font-size: 2.2rem;">ANY IDEA</div>
+
+        <button class="tier-expand-btn">
+          <span>DETAILS</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <div class="tier-details">
+          <div class="theme-box theme-learn">YOUR VISION</div>
+          <ul class="execution-list">
+            <li>Have a crazy idea for language learning?</li>
+            <li>Submit your custom feature request.</li>
+            <li>If the community likes it, we build it.</li>
+          </ul>
+        </div>
+
+        <button class="invest-button pulse-btn open-invest-modal" data-title="Wildcard" data-tier="wildcard">VOTE WILDCARD</button>
+      </div>
+
+      <!-- Strategy Tier -->
+      <div class="tier-card" id="tierSeed">
+        <div class="tier-name">The Strategy Game</div>
+        <div class="tier-price" style="font-size: 1.8rem;">DEEP LEARNING</div>
+
+        <button class="tier-expand-btn">
+          <span>DETAILS</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <div class="tier-details">
+          <div class="theme-box theme-learn">IMMERSION SYSTEM</div>
+          <ul class="execution-list">
+            <li>Complex language puzzles.</li>
+            <li>Resource management and world building.</li>
+            <li>Passive vocabulary acquisition.</li>
+          </ul>
+        </div>
+
+        <button class="invest-button pulse-btn open-invest-modal"
+          data-title="Strategy Game" data-tier="strategy">VOTE STRATEGY</button>
+      </div>
+
+      <!-- Social Tier -->
+      <div class="tier-card" id="tierGrowth">
+        <div class="tier-name">The Social App</div>
+        <div class="tier-price" style="font-size: 1.8rem;">MULTIPLAYER</div>
+
+        <button class="tier-expand-btn">
+          <span>DETAILS</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <div class="tier-details">
+          <div class="theme-box theme-fast">CONNECT TOGETHER</div>
+          <ul class="execution-list">
+            <li>Real-time voice and text chat with friends.</li>
+            <li>Co-op mini games.</li>
+            <li>Compete on leaderboards and form clans.</li>
+          </ul>
+        </div>
+
+        <button class="invest-button pulse-btn open-invest-modal"
+          data-title="Social App" data-tier="social">VOTE SOCIAL</button>
+      </div>
+
+      <!-- Content Tier -->
+      <div class="tier-card" id="tierVelocity">
+        <div class="tier-name">Content Platform</div>
+        <div class="tier-price" style="font-size: 1.8rem;">STORIES & MEDIA</div>
+
+        <button class="tier-expand-btn">
+          <span>DETAILS</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <div class="tier-details">
+          <div class="theme-box theme-ultimate">RICH MEDIA</div>
+          <ul class="execution-list">
+            <li>Interactive language stories.</li>
+            <li>Audio-guided immersion tracks.</li>
+            <li>Video content and cultural deep dives.</li>
+          </ul>
+        </div>
+
+        <button class="invest-button pulse-btn open-invest-modal"
+          data-title="Content Platform" data-tier="content">VOTE CONTENT</button>
+      </div>
+    </div>
+
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: 4rem; margin: 6rem auto; flex-wrap: wrap; max-width: 1200px; position:relative; z-index: 5;">
+      <img src="/fluentfast-votes/assets/koala_parachute-DzXErO1W.png" loading="lazy" alt="Koala Parachute Concept" style="max-height: 450px; width: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+      <img src="/fluentfast-votes/assets/koala_juggling-DCH5IQqF.png" loading="lazy" alt="Koala Juggling Concept" style="max-height: 450px; width: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+    </div>
+
+    <div class="contact-card">
+      <h3>PITCH TO THE FOUNDER</h3>
+      <p class="contact-subtitle">Have a wild idea? Direct line to the execution core.</p>
+
+      <div class="contact-details">
+        <div class="contact-row">
+          <span class="contact-label">EMAIL COMMUNICATION</span>
+          <div class="contact-emails">
+            <a href="mailto:fluentfastkoalas@gmail.com" class="contact-link">fluentfastkoalas@gmail.com</a>
+            <a href="mailto:anextvid@gmail.com" class="contact-link">anextvid@gmail.com</a>
+            <a href="mailto:jahronimo1@hotmail.com" class="contact-link">jahronimo1@hotmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-label">DIRECT PHONE</span>
+          <a href="tel:+447538068550" class="contact-phone">07538 068 550</a>
+        </div>
+      </div>
+
+      <a href="https://wa.me/447538068550" target="_blank" class="whatsapp-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        MESSAGE ON WHATSAPP
+      </a>
+    </div>
+
+    <footer>
+      <a href="https://www.instagram.com/fluentfast_koalas/?hl=en" target="_blank" class="insta-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+          </path>
+        </svg>
+        @fluentfast_koalas
+      </a>
+    </footer>
+  </div>
+
+  <!-- Vote Details Modal -->
+  <div id="investModalOverlay" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button id="closeInvestModal" class="close-modal-btn" aria-label="Close modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="form-header">
+        <img src="/fluentfast-votes/assets/koala_happy-CpVgnGLl.png" loading="lazy" class="koala-form-guide" alt="Happy Koala">
+        <h2 id="modalTierTitle">Lock In Your Vote</h2>
+        <p>Please provide your details below to confirm your vote.</p>
+
+        <div
+          style="font-size: 0.95rem; margin-top: 1rem; color: #ffffff; background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); line-height: 1.6; text-align: left;">
+          <strong style="display: block; margin-bottom: 0.5rem; color: #ffffff; font-size: 1.05rem;">We listen to the community:</strong>
+          <p style="margin-bottom: 0.75rem;">We only build what you want us to build.</p>
+          <p style="margin-bottom: 0;">Leave a comment if there's anything specifically you want to see included in this feature!</p>
+        </div>
+      </div>
+
+      <form class="interest-form" id="investFlowForm">
+        <div class="form-group checkbox-group full-width"
+          style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+          <label
+            style="display: flex; align-items: center; gap: 10px; cursor: pointer; justify-content: center; font-weight: 700; color: var(--brand-light); flex-wrap: wrap; text-align: center;">
+            <input type="checkbox" id="anonymousDonationMode" name="anonymous"
+              style="width: 20px; height: 20px; accent-color: var(--brand-light);">
+            Make this an anonymous investment/donation
+          </label>
+        </div>
+
+        <div id="investorRequiredFields" style="transition: all 0.3s ease; display: contents;">
+          <div class="form-group">
+            <label for="flowFirstName">First Name</label>
+            <input type="text" id="flowFirstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="flowLastName">Last Name</label>
+            <input type="text" id="flowLastName" name="lastName" placeholder="Doe" required>
+          </div>
+
+          <div class="form-group">
+            <label for="flowEmail">Email Address</label>
+            <input type="email" id="flowEmail" name="email" placeholder="john@example.com" required>
+          </div>
+        <div class="form-group checkbox-group full-width"
+          style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+          <label
+            style="display: flex; align-items: center; gap: 10px; cursor: pointer; justify-content: center; font-weight: 700; color: var(--brand-light); flex-wrap: wrap; text-align: center;">
+            <input type="checkbox" id="anonymousDonationMode" name="anonymous"
+              style="width: 20px; height: 20px; accent-color: var(--brand-light);">
+            Make this an anonymous vote!
+          </label>
+        </div>
+
+        <div id="investorRequiredFields" style="transition: all 0.3s ease; display: contents;">
+          <div class="form-group">
+            <label for="flowFirstName">First Name</label>
+            <input type="text" id="flowFirstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="flowLastName">Last Name</label>
+            <input type="text" id="flowLastName" name="lastName" placeholder="Doe" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="flowEmail">Email Address</label>
+            <input type="email" id="flowEmail" name="email" placeholder="john@example.com" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button pulse-btn" id="flowSubmitBtn">CONFIRM MY VOTE</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Pinned WhatsApp Button -->
+  <a href="https://wa.me/447538068550" target="_blank" class="floating-whatsapp" aria-label="Message us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span>Contact me for more information</span>
+  </a>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleInterest');
+    const formSection = document.getElementById('interestFormSection');
+    const investorForm = document.getElementById('investorForm');
+    const pitchBox = document.getElementById('pitchBox');
+    const togglePitch = document.getElementById('togglePitch');
+
+    togglePitch.addEventListener('click', () => {
+      const isExpanded = pitchBox.classList.toggle('expanded');
+      togglePitch.classList.toggle('active');
+      togglePitch.querySelector('span').innerText = isExpanded ? 'CLOSE DETAILS' : 'EXPAND DETAILS';
+
+      if (isExpanded) {
+        setTimeout(() => {
+          pitchBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 400);
+      }
+    });
+
+    // Pitch Detail Accordion Logic
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        header.parentElement.classList.toggle('active');
+      });
+    });
+
+    // Fast Close Button (Pitch Box)
+    const fastClosePitch = document.getElementById('fastClosePitch');
+    if (fastClosePitch) {
+      fastClosePitch.addEventListener('click', () => {
+        pitchBox.classList.remove('expanded');
+        togglePitch.classList.remove('active');
+        togglePitch.querySelector('span').innerText = 'EXPAND DETAILS';
+
+        setTimeout(() => {
+          togglePitch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      });
+    }
+
+    // Tier Card Expansion Logic
+    document.querySelectorAll('.tier-card').forEach(card => {
+      const btn = card.querySelector('.tier-expand-btn');
+      btn.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+        btn.querySelector('span').innerText = card.classList.contains('expanded') ? 'HIDE' : 'DETAILS';
+      });
+    });
+
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = formSection.classList.toggle('expanded');
+      toggleBtn.classList.toggle('active');
+
+      // Update button text and icon rotation handled by CSS
+      toggleBtn.querySelector('span').innerText = isExpanded ? 'Close Form' : 'Register Interest';
+
+      if (isExpanded) {
+        setTimeout(() => {
+          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400);
+      }
+    });
+
+    investorForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const submitBtn = investorForm.querySelector('.submit-button');
+      
+      const originalText = submitBtn.innerText;
+
+      // Polish: Loading State
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'SENDING VOTE...';
+      submitBtn.style.opacity = '0.7';
+
+      // Simulate high-fidelity submission
+      setTimeout(() => {
+        submitBtn.innerText = '✓ VOTE CAST!';
+        submitBtn.style.background = 'var(--brand-light)';
+        submitBtn.style.opacity = '1';
+
+        setTimeout(() => {
+          alert('Vote submitted! Thanks for helping us shape FluentFast.');
+
+          investorForm.reset();
+
+          // Return to original state
+          submitBtn.disabled = false;
+          submitBtn.innerText = originalText;
+          submitBtn.style.background = '';
+
+          // Collapse form
+          formSection.classList.remove('expanded');
+          toggleBtn.classList.remove('active');
+          toggleBtn.querySelector('span').innerText = 'Cast Your Vote';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        }, 2000);
+      }, 1500);
+    });
+
+    // Investment Flow Modal Logic
+    const investModalOverlay = document.getElementById('investModalOverlay');
+    const closeInvestModal = document.getElementById('closeInvestModal');
+    const investFlowForm = document.getElementById('investFlowForm');
+    const anonymousDonationMode = document.getElementById('anonymousDonationMode');
+    const investorRequiredFields = document.getElementById('investorRequiredFields');
+    const modalTierTitle = document.getElementById('modalTierTitle');
+
+    document.querySelectorAll('.open-invest-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Update modal title to show which tier they're dealing with
+        const title = btn.getAttribute('data-title') || 'Your Idea';
+        modalTierTitle.innerText = "Vote for " + title;
+
+        investModalOverlay.classList.remove('hidden');
+        // trigger reflow
+        void investModalOverlay.offsetWidth;
+        investModalOverlay.classList.add('active');
+        // Prevent body scrolling on mobile
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeInvestModal.addEventListener('click', () => {
+      investModalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => investModalOverlay.classList.add('hidden'), 400); // Wait for transition
+    });
+
+    // Close when clicking outside content
+    investModalOverlay.addEventListener('click', (e) => {
+      if (e.target === investModalOverlay) {
+        investModalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => investModalOverlay.classList.add('hidden'), 400);
+      }
+    });
+
+    anonymousDonationMode.addEventListener('change', (e) => {
+      const isAnonymous = e.target.checked;
+      const inputs = investorRequiredFields.querySelectorAll('input, select');
+      if (isAnonymous) {
+        investorRequiredFields.style.opacity = '0.3';
+        investorRequiredFields.style.pointerEvents = 'none';
+        inputs.forEach(input => input.removeAttribute('required'));
+      } else {
+        investorRequiredFields.style.opacity = '1';
+        investorRequiredFields.style.pointerEvents = 'auto';
+        inputs.forEach(input => input.setAttribute('required', 'required'));
+      }
+    });
+
+    investFlowForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('flowSubmitBtn');
+      const originalText = btn.innerText;
+
+      // UX Feedback
+      btn.disabled = true;
+      btn.innerText = 'CASTING VOTE...';
+      btn.style.opacity = '0.7';
+
+      // Simulate capturing data
+      setTimeout(() => {
+        btn.innerText = '✓ VOTE CONFIRMED';
+        btn.style.background = 'var(--brand-light)';
+        btn.style.opacity = '1';
+
+        setTimeout(() => {
+          alert('Vote locked in! Thank you.');
+
+          // Reset after short delay in case user hits back
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerText = originalText;
+            btn.style.background = '';
+            investModalOverlay.classList.remove('active');
+            investModalOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+            investFlowForm.reset();
+            investorRequiredFields.style.opacity = '1';
+            investorRequiredFields.style.pointerEvents = 'auto';
+            investorRequiredFields.querySelectorAll('input, select').forEach(i => i.setAttribute('required', 'required'));
+          }, 500);
+        }, 1000);
+      }, 1000);
+    });
+
+    // --- NEW PREMIUM UI FEATURES ---
+
+    // 1. Subtle Parallax Background Effect - fixed direction
+    const bgGradient = document.querySelector('.bg-gradient');
+    let tickingBg = false;
+    window.addEventListener('scroll', () => {
+      if (!tickingBg) {
+        window.requestAnimationFrame(() => {
+          if (bgGradient) bgGradient.style.transform = `translateY(${window.scrollY * -0.3}px)`;
+          tickingBg = false;
+        });
+        tickingBg = true;
+      }
+    }, { passive: true });
+
+    // 2. Scroll-Triggered Reveal Animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible-reveal');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Apply animation tracking to layout blocks
+    document.querySelectorAll('.tier-card, .message-section, .gallery-item, .title-animated').forEach(el => {
+      el.classList.add('hidden-reveal'); // Initialize hidden state
+      revealObserver.observe(el);
+    });
+
+    // 3. Premium Synthesized Hover Sounds (Web Audio API - Zero Asset Dependency)
+    let audioCtx = null;
+    function playHoverSound() {
+      // Initialize only on user interaction to abide by browser autoplay policies
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, audioCtx.currentTime); // Sharp tick frequency
+      osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.05);
+
+      gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); // Very soft volume
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.05);
+    }
+
+    // Attach premium click/hover sounds to interactive elements
+    document.querySelectorAll('.invest-button, .form-loader-btn, .accordion-header').forEach(btn => {
+      btn.addEventListener('mouseenter', playHoverSound);
+    });
+
+    // 4. Lottie Animations Integration
+    if (document.getElementById('hero-lottie')) {
+      lottie.loadAnimation({
+        container: document.getElementById('hero-lottie'),
+        renderer: 'canvas',
+        loop: true,
+        autoplay: true,
+        path: './Koalas_flying.json' // Correct Vite path
+      });
+    }
+
+  </script>
+</body>
+
+</html>
