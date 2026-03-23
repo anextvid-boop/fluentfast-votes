@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
   <title>VOTES | FluentFast</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,164 +15,160 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 </head>
-
 <body>
 
-  <!-- HERO SECTION (White) -->
-  <main class="bg-white">
-    <div class="alt-layout">
-      <div class="hero-split">
-        <div class="hero-text-block">
-          <h1 class="brand-title">
-            <span class="fluent">FLUENT</span><span class="fast">FAST</span>
-          </h1>
-          <p class="subtitle-text">
-            A multiplayer language app that is encouraging, fun, and built to play with friends and family.
-          </p>
-          <a href="#votingSection" class="btn-primary">SHAPE THE FUTURE</a>
-          <p style="margin-top: 1.5rem; color: rgba(15,18,37,0.5); font-weight: 500;">
-            🔒 100% Secure. Join the community voting.
-          </p>
-        </div>
-        <div class="hero-visual-block" style="flex-direction: column;">
-          <div id="hero-lottie" class="lottie-container"></div>
-        </div>
+  <!-- HERO SECTION -->
+  <main class="alt-layout" style="margin-top: 2rem;">
+    <!-- Floating decorative images -->
+    <img src="./public/koala_meditating.png" class="float-img" style="top: -20px; left: 5%; width: 140px; opacity: 0.8; animation-delay: 1s;" alt="Deco">
+    <img src="./public/koala_parachute.png" class="float-img" style="top: 40%; right: -5%; width: 180px; opacity: 0.8; animation-delay: 2s;" alt="Deco">
+
+    <div class="hero-split">
+      <div id="hero-lottie" style="width: 180px; height: 180px; margin-bottom: -2rem; z-index: 10;"></div>
+      
+      <div class="hero-text-block">
+        <h1 class="brand-title haptic-target">
+          <span class="fluent">FLUENT</span><span class="fast">FAST</span>
+        </h1>
+        <p class="subtitle-text" style="margin-top: 1rem;">
+          A multiplayer language app that is encouraging, fun, and built to play with friends and family.
+          We build what you want to play.
+        </p>
+        <a href="#votingSection" class="btn-primary pulse-btn haptic-target">SHAPE THE FUTURE</a>
       </div>
     </div>
   </main>
 
-  <!-- INFORMATION SECTION (Royal Blue) -->
-  <section class="bg-royal" style="padding: 4rem 1.5rem; text-align: center;">
-    <div class="alt-layout" style="gap: 1.5rem;">
-      <div class="hero-visual-block">
-        <img src="./public/koala_happy.png" alt="Happy Koala" style="max-width: 250px; width: 100%; height: auto; margin: 0 auto; display: block; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); border-radius: 20px;">
-      </div>
-      <div class="hero-text-block">
-        <h2 class="section-title">What is Fluent Fast?</h2>
-        <p class="subtitle-text" style="max-width: 800px; margin: 0 auto;">
-          We are creating the world's most immersive, peer-to-peer language learning format. Traditional apps use solitary mini-games. We believe language is meant to be spoken. Fluent Fast drops you into collaborative, real-time multiplayer scenarios where you are forced to talk, learn, and grow alongside real people.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- VOTING SECTION (Deep Navy) -->
-  <section id="votingSection" class="bg-navy">
-    <div class="alt-layout">
+  <!-- INFORMATION SECTION -->
+  <section class="alt-layout">
+    <img src="./public/koala_happy.png" class="float-img" style="bottom: 10%; left: -2%; width: 160px; opacity: 0.8;" alt="Deco">
+    
+    <div class="glass-panel" style="max-width: 900px; margin: 0 auto; position: relative;">
       <div class="hero-split">
-        <div class="hero-visual-block" style="order: 2; margin-top: 2rem;">
-          <div id="rocket-lottie" class="lottie-container" style="max-width: 300px;"></div>
+        <div class="hero-visual-block" style="width: 100%; display: flex; justify-content: center;">
+          <img src="./public/koala_juggling.png" alt="Juggling Koala" style="max-width: 250px; width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));">
         </div>
-        <div class="hero-text-block" style="order: 1;">
-          <h2 class="section-title">Cast Your Vote</h2>
-          <p class="subtitle-text">
-            We only build what you want us to build. Expand the ideas below and vote for the feature you want us to prioritize next.
+        <div class="hero-text-block" style="width: 100%;">
+          <h2 class="section-title">What is Fluent Fast?</h2>
+          <p class="subtitle-text" style="color: #fff;">
+            We are creating the world's most immersive, peer-to-peer language learning format. Traditional apps use solitary mini-games—but language is meant to be spoken! Fluent Fast drops you into collaborative real-time multiplayer scenarios where you talk, learn, and grow alongside real people.
           </p>
-
-          <div class="vote-list">
-            
-            <details class="vote-item">
-              <summary class="vote-summary">1. The Strategy Game</summary>
-              <div class="vote-content">
-                <p>An addictive deck-building adventure that fundamentally tests and upgrades your language fluency as you battle through levels. Perfect for competitive players.</p>
-              </div>
-            </details>
-
-            <details class="vote-item" open>
-              <summary class="vote-summary">2. Social App Format</summary>
-              <div class="vote-content">
-                <p>A TikTok-style infinite feed built specifically for peer-to-peer language exchange. Scroll through native speakers, practice pronunciation, and learn in micro-bursts.</p>
-              </div>
-            </details>
-
-            <details class="vote-item">
-              <summary class="vote-summary">3. Content Platform</summary>
-              <div class="vote-content">
-                <p>Dive deep into native media. Transcribed podcasts, translated movies, and interactive articles designed to immerse you directly in the target culture.</p>
-              </div>
-            </details>
-
-            <details class="vote-item">
-              <summary class="vote-summary">4. Wildcard Idea</summary>
-              <div class="vote-content">
-                <p>Have an entirely different idea for how we should teach languages? Drop it in the comments below. We read everything.</p>
-              </div>
-            </details>
-
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SIGN UP FORM (Royal Blue) -->
-  <section class="bg-royal">
-    <div class="alt-layout">
-      <div class="text-center mb-3">
-        <h2 class="section-title">Lock In Your Vote</h2>
-        <p class="subtitle-text" style="max-width: 600px; margin: 0 auto;">
-          Join the alpha list to experience a rich, immersive language learning environment. Let us know which feature you want to see!
+  <!-- VOTING SECTION -->
+  <section id="votingSection" class="alt-layout">
+    <img src="./public/koala_phone.png" class="float-img" style="top: 30%; right: 2%; width: 150px; opacity: 0.8; animation-delay: 1.5s;" alt="Deco">
+
+    <div class="glass-panel" style="display: flex; flex-direction: column; align-items: center;">
+      <div id="rocket-lottie" style="width: 200px; margin-bottom: 1rem;"></div>
+      
+      <h2 class="section-title">Cast Your Vote</h2>
+      <p class="subtitle-text" style="margin-bottom: 3rem;">
+        Expand the ideas below and see what's on our roadmap. Tap to select the feature you want us to prioritize next.
+      </p>
+
+      <div class="vote-list">
+        
+        <details class="vote-item haptic-target">
+          <summary class="vote-summary">1. The Strategy Game</summary>
+          <div class="vote-content">
+            <p>An addictive deck-building adventure that fundamentally tests and upgrades your language fluency as you battle through levels. Perfect for competitive players.</p>
+          </div>
+        </details>
+
+        <details class="vote-item haptic-target" open>
+          <summary class="vote-summary">2. Social App Format</summary>
+          <div class="vote-content">
+            <p>A TikTok-style infinite feed built specifically for peer-to-peer language exchange. Scroll through native speakers, practice pronunciation, and learn in micro-bursts.</p>
+          </div>
+        </details>
+
+        <details class="vote-item haptic-target">
+          <summary class="vote-summary">3. Content Platform</summary>
+          <div class="vote-content">
+            <p>Dive deep into native media. Transcribed podcasts, translated movies, and interactive articles designed to immerse you directly in the target culture.</p>
+          </div>
+        </details>
+
+        <details class="vote-item haptic-target">
+          <summary class="vote-summary">4. Wildcard Idea</summary>
+          <div class="vote-content">
+            <p>Have an entirely different idea for how we should teach languages? Drop it in the comments below. We read everything.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGN UP FORM -->
+  <section class="alt-layout">
+    <div class="glass-panel" style="max-width: 700px; margin: 0 auto; border-color: var(--brand-light);">
+      
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 class="section-title" style="color: var(--brand-light); font-size: 2rem;">Lock In Your Vote</h2>
+        <p class="subtitle-text" style="margin: 0 auto;">
+          Join the alpha list today and help us decide the feature roadmap.
         </p>
       </div>
       
-      <div class="form-container">
-        <form id="voteForm">
-          <div class="form-group mb-2">
-            <label for="voteSelection">Which feature are you voting for?</label>
-            <select id="voteSelection" name="voteSelection" required>
-              <option value="" disabled selected>Select an option...</option>
-              <option value="Strategy Game">The Strategy Game</option>
-              <option value="Social App">Social App Format</option>
-              <option value="Content Platform">Content Platform</option>
-              <option value="Wildcard">Wildcard Idea</option>
-            </select>
-          </div>
+      <form id="voteForm">
+        <div class="form-group" style="margin-bottom: 2rem;">
+          <label for="voteSelection">Which feature are you voting for?</label>
+          <select id="voteSelection" name="voteSelection" class="haptic-target" required>
+            <option value="" disabled selected>Select an option...</option>
+            <option value="Strategy Game">The Strategy Game</option>
+            <option value="Social App">Social App Format</option>
+            <option value="Content Platform">Content Platform</option>
+            <option value="Wildcard">Wildcard Idea</option>
+          </select>
+        </div>
 
-          <label class="checkbox-label mb-2">
-            <input type="checkbox" id="anonVoteToggle" name="anonymous">
-            Make this an anonymous vote!
-          </label>
+        <label class="checkbox-label haptic-target" style="margin-bottom: 2rem;">
+          <input type="checkbox" id="anonVoteToggle" name="anonymous">
+          Make this an anonymous vote!
+        </label>
 
-          <div id="voterDetailsGroup">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="John" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-          </div>
-
+        <div id="voterDetailsGroup">
           <div class="form-group">
-            <label for="comments">Extra Comments (Optional)</label>
-            <input type="text" id="comments" name="comments" placeholder="Any specific wildcards?">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
           </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+        </div>
 
-          <button type="submit" class="btn-primary submit-button" id="voteSubmitBtn">CONFIRM MY VOTE</button>
-        </form>
-      </div>
+        <div class="form-group">
+          <label for="comments">Extra Comments (Optional)</label>
+          <input type="text" id="comments" name="comments" placeholder="Any specific wildcards?">
+        </div>
 
+        <button type="submit" class="btn-primary haptic-target" id="voteSubmitBtn" style="width: 100%; margin-top: 1rem;">CONFIRM MY VOTE</button>
+      </form>
     </div>
   </section>
 
-  <!-- FOOTER SECTION (White) -->
+  <!-- FOOTER -->
   <footer class="footer-section">
-    <div class="footer-logo">
+    <div class="brand-title" style="font-size: 2rem; margin-bottom: 1rem;">
       <span class="fluent">FLUENT</span><span class="fast">FAST</span>
     </div>
-    <p style="color: rgba(15,18,37,0.7); font-weight: 500; margin-bottom: 1rem;">
+    <p style="color: rgba(255,255,255,0.7); font-weight: 500; font-family: var(--font-body); max-width: 600px; margin: 0 auto 1.5rem;">
       Immersion is the best form of learning. We bring the immersive experience to you so you learn fluent faster together.
     </p>
-    <div style="font-weight: 600;">
-      <a href="mailto:fluentfastkoalas@gmail.com" style="color: var(--deep-navy); text-decoration: none; margin: 0 10px;">Email Us</a>
-      |
-      <a href="https://wa.me/447538068550" style="color: var(--deep-navy); text-decoration: none; margin: 0 10px;">WhatsApp</a>
+    <div style="font-family: var(--font-display); font-weight: 900; letter-spacing: 1px;">
+      <a href="mailto:fluentfastkoalas@gmail.com" class="haptic-target" style="color: var(--brand-light); text-decoration: none; margin: 0 15px; transition: color 0.2s;">EMAIL US</a>
+      <a href="https://wa.me/447538068550" class="haptic-target" style="color: var(--brand-light); text-decoration: none; margin: 0 15px; transition: color 0.2s;">WHATSAPP</a>
     </div>
   </footer>
 
   <script>
-    // Initialize Lottie Animations
+    /* ========== LOTTIE LOGIC ========== */
     function initLottie(containerId, path) {
       if (document.getElementById(containerId)) {
         lottie.loadAnimation({
@@ -188,19 +180,47 @@
         });
       }
     }
-
     initLottie('hero-lottie', './Koalas_flying.json');
     initLottie('rocket-lottie', './Rocket_Koala.json');
 
-    // Smooth scroll for anchor link
-    document.querySelector('a[href^="#"]').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+    /* ========== HAPTIC & AUDIO FEEDBACK ========== */
+    // Helper to synthesize a premium interface "Pop" sound
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playPopSound() {
+      if(audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      osc.type = 'sine';
+      // Quick pitch drop creates a soft 'pop'
+      osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.05);
+      // Fast volume fade out
+      gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.05);
+    }
+
+    // Attach listeners to all haptic targets
+    document.querySelectorAll('.haptic-target').forEach(el => {
+      el.addEventListener('click', () => {
+        // Play pop sound
+        try { playPopSound(); } catch(e){}
+        // Fire haptic vibration if supported (mobile)
+        if (navigator.vibrate) {
+          navigator.vibrate(10); // 10ms light pop
+        }
       });
     });
 
-    // Handle Anonymous Voting Toggle
+    /* ========== UI LOGIC ========== */
+    document.querySelector('a[href^="#"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+
     const anonToggle = document.getElementById('anonVoteToggle');
     const voterDetails = document.getElementById('voterDetailsGroup');
     const requiredInputs = voterDetails.querySelectorAll('input[required]');
@@ -217,7 +237,6 @@
       }
     });
 
-    // Handle Form Submission UX
     const voteForm = document.getElementById('voteForm');
     const submitBtn = document.getElementById('voteSubmitBtn');
 
@@ -225,33 +244,30 @@
       e.preventDefault();
       const originalText = submitBtn.innerText;
       
-      // Loading State
+      submitBtn.classList.add('pulse-btn');
       submitBtn.disabled = true;
       submitBtn.innerText = 'CASTING VOTE...';
-      submitBtn.style.opacity = '0.7';
 
-      // Simulate API Call
+      if (navigator.vibrate) navigator.vibrate([10, 50, 10]);
+
       setTimeout(() => {
         submitBtn.innerText = '✓ VOTE CONFIRMED';
         submitBtn.style.backgroundColor = 'var(--brand-light)';
         submitBtn.style.color = 'var(--deep-navy)';
-        submitBtn.style.opacity = '1';
+        submitBtn.classList.remove('pulse-btn');
+
+        if (navigator.vibrate) navigator.vibrate([20, 100, 30]);
 
         setTimeout(() => {
           alert("Vote successfully cast! We'll stay in touch.");
-          
-          // Reset UI
           submitBtn.disabled = false;
           submitBtn.innerText = originalText;
           submitBtn.style.backgroundColor = '';
           submitBtn.style.color = '';
           voteForm.reset();
-
-          // Reset anonymous toggle state visually
           voterDetails.style.opacity = '1';
           voterDetails.style.pointerEvents = 'auto';
           requiredInputs.forEach(input => input.setAttribute('required', 'required'));
-
         }, 1500);
       }, 1500);
     });
