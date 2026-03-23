@@ -139,6 +139,11 @@ body {
   background-color: #F8F9FA !important;
 }
 
+@keyframes slowParallaxFall {
+  0% { background-position: center 0; }
+  100% { background-position: center 300vh; }
+}
+
 .parallax-bg {
   position: fixed;
   top: 0;
@@ -151,7 +156,7 @@ body {
   background-size: 100vw auto;
   background-position: top center;
   background-repeat: repeat-y; 
-  background-attachment: fixed;
+  animation: slowParallaxFall 90s linear infinite;
   z-index: 0; 
   /* Boosted to incredibly high visibility */
   opacity: 0.35; 
@@ -250,8 +255,21 @@ header {
   padding-bottom: 2rem !important;
 }
 
-/* 2. Blue Sections (Play/Learn Block, Footer) */
-.play-learn-block, .contact-card {
+/* 2. Blue & Dark Sections (Play/Learn Block, Footer) */
+.play-learn-block {
+  position: relative;
+  background: var(--deep-navy) !important;
+  color: #FFF !important;
+  box-shadow: 0 0 0 100vmax var(--deep-navy);
+  clip-path: inset(0 -100vmax);
+  padding: 5rem 1rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  z-index: 10;
+}
+
+.contact-card {
   position: relative;
   background: var(--royal-blue) !important;
   color: #FFF !important;
