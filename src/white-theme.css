@@ -28,15 +28,15 @@ h1.title-animated .word-group,
 
 /* Redefine brand-text to pop on white */
 .brand-text .fluent {
-  background: var(--royal-blue) !important;
-  color: #FFF !important;
-  padding: 0 15px;
-  border-radius: 12px;
+  background: none !important;
+  color: var(--royal-blue) !important;
+  padding: 0;
+  border-radius: 0;
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
   text-shadow: none !important;
   animation: none !important;
-  box-shadow: 0 10px 20px rgba(89, 86, 214, 0.3) !important;
+  box-shadow: none !important;
 }
 
 .brand-text .fast {

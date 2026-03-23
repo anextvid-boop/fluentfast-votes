@@ -21,21 +21,28 @@
   <div class="container">
     <header style="position: relative;">
       <div class="brand-header">
-        <div id="hero-lottie" class="header-lottie-koala floating">
+        <div id="hero-lottie" class="header-lottie-koala floating" style="margin-bottom: 1rem;">
           <!-- Lottie injects SVG here natively -->
         </div>
-        <div class="brand-text">
-          <span class="fluent">FLUENT</span><span class="fast">FAST</span>
+
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <div class="brand-text">
+            <span class="fluent" style="font-size: 3rem;">FLUENT</span><span class="fast" style="font-size: 3rem;">FAST</span>
+          </div>
+          <div class="brand-tagline">
+            <span class="inv-char" style="color: var(--royal-blue);">V</span>
+            <span class="inv-char" style="color: var(--royal-blue);">O</span>
+            <span class="inv-char" style="color: var(--royal-blue);">T</span>
+            <span class="inv-char" style="color: var(--royal-blue);">E</span>
+            <span class="inv-char" style="color: var(--royal-blue);">S</span>
+          </div>
         </div>
-        <div class="brand-tagline">
-          <span class="inv-char">V</span><span class="inv-char">O</span><span class="inv-char">T</span><span
-            class="inv-char">E</span><span class="inv-char">S</span>
-        </div>
+
         <div class="brand-motivation">"WHAT DO WE BUILD NEXT?"</div>
 
-        <div class="hero-brand-image" style="display: flex; justify-content: center; align-items: center; gap: 2rem;">
-          <img src="./public/fluentfast_koala.png" fetchpriority="high" alt="" style="width: auto; max-height: 250px; border-radius: 0; box-shadow: none;">
-          <img src="./public/koala_meditating.png" fetchpriority="high" alt="" style="width: auto; max-height: 250px; border-radius: 0; box-shadow: none; object-position: center;">
+        <!-- Fun Page Break Divider -->
+        <div style="width: 100%; display: flex; justify-content: center; margin: 3rem 0; opacity: 0.8;">
+          <img src="./public/koala_meditating.png" fetchpriority="high" alt="Zen Koala" style="height: 140px; border-radius: 0; box-shadow: none;">
         </div>
       </div>
 
@@ -98,6 +105,12 @@
 
     <!-- Expanded Pitch Details -->
     <section class="form-section" id="pitchBox">
+      
+      <!-- Visual Break Inside the Info Section -->
+      <div style="width: 100%; display: flex; justify-content: center; margin: 2rem 0; opacity: 0.9;">
+          <img src="./public/koala_parachute.png" alt="Parachute Koala" style="height: 180px; box-shadow: none; border-radius: 0; transform: translateY(-10px);">
+      </div>
+
       <div class="message-section intro-visible">
         <p>
           <strong>FluentFast App</strong><br>
