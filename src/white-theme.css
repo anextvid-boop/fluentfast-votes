@@ -145,11 +145,14 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  /* Image managed entirely via CSS to ensure Vite's base mapping captures it! */
+  background-image: url('/uploaded_media_1774293882547.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   z-index: -2;
-  filter: grayscale(100%) opacity(0.3);
+  /* Heavily increased filter opacity logic to make it fainter to the wash and more backgroundy */
+  filter: grayscale(100%) opacity(0.2) contrast(1.1) brightness(1.2);
 }
 
 .parallax-overlay {
@@ -158,7 +161,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(248, 249, 250, 0.94);
+  background: rgba(248, 249, 250, 0.95);
   z-index: -1;
   pointer-events: none;
 }
@@ -198,4 +201,37 @@ body::before, body::after, html::before, html::after {
 .social-icon {
   color: var(--deep-navy) !important;
 }
+
+/* Central alignment force rules */
+.message-section, 
+.message-section h3, 
+.message-section p, 
+.contact-card,
+.footer-tagline {
+  text-align: center !important;
+}
+
+.matrix-grid {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.matrix-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center !important;
+}
+
+.vote-item-content {
+  text-align: center !important;
+  width: 100%;
+}
+
+.contact-details {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 
