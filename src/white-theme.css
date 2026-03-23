@@ -145,16 +145,33 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('../public/uploaded_media_1774293882547.jpg'); /* This image serves as the collage of app screens */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  /* CSS Multi-layer collage pattern using provided assets */
+  background-image: 
+    url('../public/koala_meditating.png'),
+    url('../public/koala_juggling.png'),
+    url('../public/brand1.jpg'),
+    url('../public/koala_parachute.png'),
+    url('../public/brand3.jpg');
+  background-size: 
+    20vh, 
+    25vh, 
+    40vh, 
+    22vh, 
+    45vh;
+  background-position: 
+    5vw 5vh, 
+    80vw 20vh, 
+    10vw 70vh, 
+    85vw 80vh, 
+    50vw 45vh;
+  background-repeat: no-repeat;
   z-index: 0; 
-  /* Drastically boosted visibility to ensure it can never be missed across devices */
-  opacity: 0.65; 
+  /* Boosted to incredibly high visibility */
+  opacity: 0.16; 
   pointer-events: none;
-  filter: grayscale(100%) opacity(0.4) contrast(1.1) brightness(1.6);
-  mix-blend-mode: luminosity; /* Use luminosity layer so it gracefully drops behind the text without blowing out */
+  /* Wash the entire collage down into a unified brand-blue tint */
+  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(300%) contrast(1.2);
+  mix-blend-mode: multiply;
 }
 
 .container {
@@ -226,8 +243,8 @@ body::before, body::after, html::before, html::after {
   }
 }
 
-/* Special Case: Massive Blue Page Break for Matrix */
-.voting-board-section {
+/* Special Case: Massive Blue Page Breaks */
+.voting-board-section, .form-section#pitchBox {
   position: relative;
   background: var(--royal-blue) !important;
   color: #FFF !important;
@@ -241,7 +258,24 @@ body::before, body::after, html::before, html::after {
 }
 
 .voting-board-section .message-section h3,
-.voting-board-section .message-section p {
+.voting-board-section .message-section p,
+.form-section#pitchBox .message-section h3,
+.form-section#pitchBox .message-section p,
+.form-section#pitchBox .accordion-content p,
+.form-section#pitchBox .accordion-content li {
+  color: #FFFFFF !important;
+}
+
+.form-section#pitchBox .accordion {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.form-section#pitchBox .accordion-header h3 {
+  color: #FFFFFF !important;
+}
+
+.form-section#pitchBox .accordion-icon {
   color: #FFFFFF !important;
 }
 
