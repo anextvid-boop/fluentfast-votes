@@ -147,23 +147,23 @@ body {
   height: 100vh;
   /* CSS Multi-layer collage pattern using provided assets */
   background-image: 
-    url('../public/koala_meditating.png'),
-    url('../public/koala_juggling.png'),
-    url('../public/brand1.jpg'),
-    url('../public/koala_parachute.png'),
-    url('../public/brand3.jpg');
+    url('../public/new_concept1.jpg'),
+    url('../public/brand2.jpg'),
+    url('../public/new_concept4.png'),
+    url('../public/brand5.jpg'),
+    url('../public/new_concept7.jpg');
   background-size: 
-    20vh, 
-    25vh, 
+    30vh, 
+    35vh, 
     40vh, 
-    22vh, 
+    28vh, 
     45vh;
   background-position: 
     5vw 5vh, 
-    80vw 20vh, 
-    10vw 70vh, 
-    85vw 80vh, 
-    50vw 45vh;
+    80vw 15vh, 
+    10vw 60vh, 
+    85vw 75vh, 
+    45vw 40vh;
   background-repeat: no-repeat;
   z-index: 0; 
   /* Boosted to incredibly high visibility */
