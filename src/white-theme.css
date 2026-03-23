@@ -130,7 +130,44 @@ h1.title-animated .word-group,
   background: rgba(89, 86, 214, 0.1) !important;
 }
 
-/* Hide old gradient entirely */
+/* Hide old gradient and any ghost text / shadow bleed */
 .bg-gradient {
   display: none !important;
 }
+
+body::before, body::after, html::before, html::after {
+  display: none !important;
+  box-shadow: none !important;
+}
+
+.brand-tagline::after, .brand-tagline::before {
+  display: none !important;
+}
+
+/* Contact Links & Footer Inversion */
+.contact-link {
+  color: var(--royal-blue) !important;
+  text-shadow: none !important;
+  font-weight: 600 !important;
+}
+
+.contact-link:hover {
+  background: rgba(89, 86, 214, 0.1) !important;
+}
+
+.footer-logo {
+  color: var(--deep-navy) !important;
+}
+
+.footer-logo .fast {
+  color: var(--royal-blue) !important;
+}
+
+.footer-tagline {
+  color: rgba(15, 18, 37, 0.7) !important;
+}
+
+.social-icon {
+  color: var(--deep-navy) !important;
+}
+
