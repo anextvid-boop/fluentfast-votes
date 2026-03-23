@@ -1,11 +1,12 @@
 :root {
-  --royal-blue: #3B5BDA;
-  --royal-blue-hover: #2A46B5;
-  --royal-blue-light: #5B75E5;
-  --deep-navy: #0F1225;
-  --brand-light: #3CD070;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --royal-blue: #524ee6;
+  --royal-blue-hover: #423ed9;
+  --royal-blue-light: #9d9bff;
+  --deep-navy: #0b0c1a;
+  --brand-light: #9d9bff;
+  --brand-glow: #524ee673;
+  --font-display: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-body: "Outfit", system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -43,6 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 3rem;
 }
 
