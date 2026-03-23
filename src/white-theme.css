@@ -145,33 +145,17 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* CSS Multi-layer collage pattern using provided assets */
-  background-image: 
-    url('../public/new_concept1.jpg'),
-    url('../public/brand2.jpg'),
-    url('../public/new_concept4.png'),
-    url('../public/brand5.jpg'),
-    url('../public/new_concept7.jpg');
-  background-size: 
-    30vh, 
-    35vh, 
-    40vh, 
-    28vh, 
-    45vh;
-  background-position: 
-    5vw 5vh, 
-    80vw 15vh, 
-    10vw 60vh, 
-    85vw 75vh, 
-    45vw 40vh;
-  background-repeat: no-repeat;
+  /* Single massive image to prevent patchy multi-layer rendering issues on mobile WebKit */
+  background-image: url('../public/new_concept7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   z-index: 0; 
   /* Boosted to incredibly high visibility */
-  opacity: 0.16; 
+  opacity: 0.35; 
   pointer-events: none;
-  /* Wash the entire collage down into a unified brand-blue tint */
-  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(300%) contrast(1.2);
-  mix-blend-mode: multiply;
+  /* Wash the entire collage down into a unified brand-blue tint without crashing WebKit mix-blends */
+  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(400%) contrast(1.1) brightness(1.1);
 }
 
 .container {
@@ -244,7 +228,8 @@ body::before, body::after, html::before, html::after {
 }
 
 /* Special Case: Massive Blue Page Breaks */
-.voting-board-section, .form-section#pitchBox {
+/* Make Matrix Blue, Contact/Footer Blue. Ensure pitchBox is white! */
+.voting-board-section, .contact-card {
   position: relative;
   background: var(--royal-blue) !important;
   color: #FFF !important;
@@ -259,24 +244,28 @@ body::before, body::after, html::before, html::after {
 
 .voting-board-section .message-section h3,
 .voting-board-section .message-section p,
-.form-section#pitchBox .message-section h3,
-.form-section#pitchBox .message-section p,
-.form-section#pitchBox .accordion-content p,
-.form-section#pitchBox .accordion-content li {
+.contact-card h3,
+.contact-card p,
+.contact-card .contact-link,
+.footer-logo,
+.footer-logo .fast,
+.footer-tagline,
+.social-icon {
   color: #FFFFFF !important;
 }
 
-.form-section#pitchBox .accordion {
-  background: transparent !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+.contact-card .contact-details {
+  border-top-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-.form-section#pitchBox .accordion-header h3 {
+.filter-btn {
+  border-color: rgba(255,255,255,0.4) !important;
   color: #FFFFFF !important;
 }
 
-.form-section#pitchBox .accordion-icon {
-  color: #FFFFFF !important;
+.filter-btn.active, .filter-btn:hover {
+  background: #FFFFFF !important;
+  color: var(--royal-blue) !important;
 }
 
 .filter-btn {
