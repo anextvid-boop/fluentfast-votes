@@ -127,6 +127,30 @@ body::before {
   max-width: 600px;
 }
 
+/* Scroll Reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-delay-1 { transition-delay: 0.2s; }
+.reveal-delay-2 { transition-delay: 0.4s; }
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--brand-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
 /* Glassmorphism Cards */
 .glass-panel {
   background: var(--card-bg);
@@ -311,10 +335,12 @@ details.vote-item[open] summary.vote-summary::after {
 /* Footer Section */
 .footer-section {
   padding: 4rem 1.5rem;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(20px);
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 10;
 }
 
 .footer-logo {
@@ -322,4 +348,34 @@ details.vote-item[open] summary.vote-summary::after {
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 1.5rem;
+}
+
+.footer-links-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50px;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.05);
+}
+
+.footer-link:hover {
+  color: #fff;
+  border-color: var(--brand-light);
+  transform: translateY(-3px);
+  background: rgba(104, 101, 240, 0.1);
+  box-shadow: 0 5px 15px rgba(104, 101, 240, 0.3);
 }
