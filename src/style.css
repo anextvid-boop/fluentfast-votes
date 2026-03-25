@@ -28,7 +28,7 @@ body {
 body::before {
   content: "";
   z-index: -1;
-  background: radial-gradient(circle at 50% -20%, rgba(104, 101, 240, 0.4) 0%, rgba(11, 12, 26, 0.9) 70%), url('../public/new_concept10.jpg');
+  background: radial-gradient(circle at 50% var(--light-y, -20%), rgba(104, 101, 240, 0.45) 0%, rgba(11, 12, 26, 0.9) 70%), url('../public/new_concept10.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -150,6 +150,25 @@ body::before {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+
+/* Shiny Badge Animation */
+.shiny-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  animation: shineBadge 4s ease-out infinite;
+}
+
+@keyframes shineBadge {
+  0% { left: -150%; }
+  25% { left: 200%; }
+  100% { left: 200%; }
 }
 
 /* Glassmorphism Cards */
