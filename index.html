@@ -55,9 +55,12 @@
   <!-- VOTING SECTION -->
   <section id="votingSection" class="alt-layout">
 
-    <div class="glass-panel reveal" style="display: flex; flex-direction: column; align-items: center;">
+    <details class="glass-panel vote-main-details reveal" style="display: block; width: 100%; border-color: var(--brand-glow);">
+      <summary class="main-vote-summary haptic-target">
+        <h2 class="section-title gradient-text" style="margin: 0;">Cast Your Vote</h2>
+      </summary>
       
-      <h2 class="section-title gradient-text reveal">Cast Your Vote</h2>
+      <div class="main-details-content reveal active" style="margin-top: 2rem;">
       
       <!-- Live Countdown Timer -->
       <div id="countdownTimer" class="reveal reveal-delay-1" style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 1rem; background: rgba(0,0,0,0.5); padding: 0.5rem 1.5rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1);">
@@ -138,19 +141,21 @@
         </details>
 
       </div>
-    </div>
+      </div>
+    </details>
   </section>
 
   <!-- SIGN UP FORM -->
   <section class="alt-layout">
-    <div class="glass-panel reveal" style="max-width: 700px; margin: 0 auto; border-color: var(--brand-light);">
+    <details class="glass-panel vote-main-details reveal" style="display: block; width: 100%; max-width: 700px; margin: 0 auto; border-color: var(--brand-light);">
+      <summary class="main-vote-summary haptic-target">
+        <h2 class="section-title gradient-text" style="font-size: 2.2rem; margin: 0;">Lock In Your Vote</h2>
+      </summary>
       
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 class="section-title gradient-text" style="font-size: 2.2rem;">Lock In Your Vote</h2>
-        <p class="subtitle-text" style="margin: 0 auto; color: #fff;">
+      <div class="main-details-content reveal active" style="margin-top: 1.5rem;">
+        <p class="subtitle-text" style="margin: 0 auto 2rem; color: #fff; text-align: center;">
           The winning feature gets built next month. Vote now to secure guaranteed early Alpha access and an exclusive Founder's Badge.
         </p>
-      </div>
       
       <form id="voteForm">
         <div class="form-group" style="margin-bottom: 2rem;">
@@ -219,7 +224,8 @@
           <button class="btn-primary haptic-target" style="padding: 1rem 2rem; font-size: 1rem; background: #25D366; border-color: #25D366;">WhatsApp</button>
         </div>
       </div>
-    </div>
+      </div>
+    </details>
   </section>
 
   <!-- Live Recent Activity Ticker (Moved outside container for responsive full width) -->

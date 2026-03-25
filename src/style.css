@@ -28,7 +28,10 @@ body {
 body::before {
   content: "";
   z-index: -1;
-  background: radial-gradient(circle at 50% -20%, rgba(104, 101, 240, 0.4) 0%, var(--deep-navy) 70%);
+  background: radial-gradient(circle at 50% -20%, rgba(104, 101, 240, 0.4) 0%, rgba(11, 12, 26, 0.9) 70%), url('../public/new_concept10.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: var(--deep-navy);
   width: 100vw;
   height: 100vh;
@@ -280,8 +283,51 @@ summary.vote-summary::after {
   transition: transform 0.3s ease;
 }
 
-details.vote-item[open] summary.vote-summary::after {
+details.vote-item[open] summary.vote-summary::after,
+details.vote-main-details[open] summary.main-vote-summary::after {
   content: '−';
+}
+
+/* Master Details Cards */
+details.vote-main-details {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow: hidden;
+}
+
+details.vote-main-details:hover {
+  border-color: var(--brand-light);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.6), inset 0 0 20px rgba(157, 155, 255, 0.1);
+}
+
+summary.main-vote-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+}
+
+summary.main-vote-summary::-webkit-details-marker { display: none; }
+
+summary.main-vote-summary::after {
+  content: '+';
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--brand-light);
+  transition: transform 0.3s ease;
+}
+
+details.vote-main-details[open] summary.main-vote-summary {
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+}
+
+.main-details-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .vote-content {
