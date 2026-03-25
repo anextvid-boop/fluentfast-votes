@@ -28,10 +28,8 @@ body {
 body::before {
   content: "";
   z-index: -1;
-  background-image: linear-gradient(rgba(82, 78, 230, 0.6), rgba(11, 12, 26, 0.95)), url('../public/brand3.jpg');
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background: radial-gradient(circle at 50% -20%, rgba(104, 101, 240, 0.4) 0%, var(--deep-navy) 70%);
+  background-color: var(--deep-navy);
   width: 100vw;
   height: 100vh;
   position: fixed;
