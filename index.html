@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" crossorigin href="/fluentfast-votes/assets/index-DPOPVmMX.css">
+  <link rel="stylesheet" crossorigin href="/fluentfast-votes/assets/index-DlQhArgA.css">
 </head>
 <body>
   <!-- Theme Overlay for Dynamic Shifting -->
@@ -200,8 +200,8 @@
       <p class="subtitle-text" style="margin: 0 auto 2rem; color: #fff;">Your choices have been locked into the mainframe.</p>
       
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-        <button class="btn-primary haptic-target" style="padding: 1rem 2rem; font-size: 1rem; background: #1DA1F2; border-color: #1DA1F2; box-shadow: none;">Share on X</button>
-        <button class="btn-primary haptic-target" style="padding: 1rem 2rem; font-size: 1rem; background: #25D366; border-color: #25D366; box-shadow: none;">WhatsApp</button>
+        <a href="https://twitter.com/intent/tweet?text=I%20just%20locked%20in%20my%20votes%20for%20the%20future%20of%20FluentFast!%20Shape%20the%20roadmap%20here:&url=https://jahroinimo.github.io/fluentfast-votes/" target="_blank" class="btn-primary haptic-target" style="padding: 1rem 2rem; font-size: 1rem; background: #1DA1F2; border-color: #1DA1F2; box-shadow: none; text-decoration: none; color: #fff;">Share on X</a>
+        <a href="https://api.whatsapp.com/send?text=I%20just%20locked%20in%20my%20votes%20for%20the%20future%20of%20FluentFast!%20Shape%20the%20roadmap%20here:%20https://jahroinimo.github.io/fluentfast-votes/" target="_blank" class="btn-primary haptic-target" style="padding: 1rem 2rem; font-size: 1rem; background: #25D366; border-color: #25D366; box-shadow: none; text-decoration: none; color: #fff;">WhatsApp</a>
       </div>
     </div>
 
@@ -333,7 +333,6 @@
         // Check completion
         if (savedItemsCount === totalMatrixItems) {
           setTimeout(() => {
-            matrixGrid.style.display = 'none'; // Optional: fade out grid
             finalSubmitArea.style.display = 'block';
             finalSubmitArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }, 800);
