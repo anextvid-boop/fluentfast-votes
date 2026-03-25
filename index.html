@@ -10,8 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
   <link rel="stylesheet" crossorigin href="/fluentfast-votes/assets/index-BKa2ATKg.css">
 </head>
 <body>
@@ -21,7 +19,6 @@
   <!-- HERO SECTION -->
   <main class="alt-layout">
     <div class="hero-split">
-      <div id="hero-lottie" style="width: 280px; height: 280px; margin-bottom: -2rem; z-index: 10;"></div>
       
       <div class="hero-text-block reveal">
         <div style="font-family: var(--font-display); text-transform: uppercase; letter-spacing: 5px; color: var(--brand-light); font-weight: 900; font-size: 1.2rem; margin-bottom: 0.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);" class="gradient-text">
@@ -52,34 +49,7 @@
   </main>
 
 
-  <!-- TIMELINE SECTION -->
-  <section class="alt-layout" style="padding-top: 0;">
-    <div class="reveal">
-      <h2 class="section-title gradient-text" style="font-size: 2rem;">The Roadmap</h2>
-      <p class="subtitle-text" style="margin: 0 auto; margin-bottom: 2rem;">What happens after you vote.</p>
-      
-      <div class="timeline-wrapper">
-        <div class="timeline-item reveal reveal-delay-1">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Phase 01: Right Now</div>
-          <div class="timeline-title">The Community Vote</div>
-          <div class="timeline-desc">Expand the cards below to see proposed ideas. Lock in your vote to shape our next sprint.</div>
-        </div>
-        <div class="timeline-item reveal reveal-delay-2">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Phase 02: Next Month</div>
-          <div class="timeline-title">The Build Sandbox</div>
-          <div class="timeline-desc">Our engineers jump straight into building the winner. We document the process exclusively for the alpha waitlist group via Discord.</div>
-        </div>
-        <div class="timeline-item reveal reveal-delay-2">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Phase 03: Q3</div>
-          <div class="timeline-title">Closed Alpha Access</div>
-          <div class="timeline-desc">The winning feature is launched. Only voters and true founders get hands-on access to the first build.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- VOTING SECTION -->
   <section id="votingSection" class="alt-layout">
@@ -281,20 +251,6 @@
   </footer>
 
   <script>
-    /* ========== LOTTIE LOGIC ========== */
-    function initLottie(containerId, path) {
-      if (document.getElementById(containerId)) {
-        lottie.loadAnimation({
-          container: document.getElementById(containerId),
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: path
-        });
-      }
-    }
-    initLottie('hero-lottie', './Koalas_flying.json');
-    // Removed rocket-lottie as it doesn't exist. Used image instead.
 
     /* ========== HAPTIC & AUDIO FEEDBACK ========== */
     // Helper to synthesize a premium interface "Pop" sound
