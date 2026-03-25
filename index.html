@@ -17,7 +17,7 @@
 </head>
 <body>
   <!-- Theme Overlay for Dynamic Shifting -->
-  <div id="themeOverlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 1s ease, background 1s ease;"></div>
+  <div id="themeOverlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0; transition: background-color 1s ease, opacity 1s ease;"></div>
 
   <!-- HERO SECTION -->
   <main class="alt-layout" style="margin-top: 2rem;">
@@ -223,11 +223,11 @@
         </label>
 
         <!-- Social Login Buttons -->
-        <div class="social-login-group" style="display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: center;">
-          <button type="button" class="sso-btn haptic-target" style="flex: 1; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+        <div class="social-login-group" style="display: flex; flex-wrap: wrap; width: 100%; gap: 1rem; margin-bottom: 2rem; justify-content: center;">
+          <button type="button" class="sso-btn haptic-target" style="flex: 1; min-width: 140px; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; font-weight: bold; transition: all 0.3s;">
             <svg style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="currentColor" d="M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.27 12.19,19.27C8.36,19.27 5,16.25 5,12C5,7.9 8.2,4.73 12.2,4.73C15.29,4.73 17.1,6.7 17.1,6.7L19,4.72C19,4.72 16.56,2 12.1,2C6.42,2 2.03,6.8 2.03,12C2.03,17.05 6.36,22 12.22,22C17,22 21.52,18.33 21.52,12.27C21.52,11.37 21.35,11.1 21.35,11.1Z" /></svg> Google
           </button>
-          <button type="button" class="sso-btn haptic-target" style="flex: 1; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+          <button type="button" class="sso-btn haptic-target" style="flex: 1; min-width: 140px; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; font-weight: bold; transition: all 0.3s;">
             <svg style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/></svg> Facebook
           </button>
         </div>
@@ -270,22 +270,22 @@
         </div>
       </div>
     </div>
-
-    <!-- Live Recent Activity Ticker -->
-    <div class="recent-activity-ticker" style="overflow: hidden; white-space: nowrap; width: 100vw; position: relative; margin-left: -50vw; left: 50%; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.8rem 0; margin-top: 3rem; background: rgba(0,0,0,0.3);">
-      <div class="ticker-content">
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Sarah from UK just voted for Social App</span>
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">🏆 Alex unlocked the Founder Badge</span>
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Juan from ES voted for Strategy Game</span>
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700; color: var(--brand-light);">🔥 14 new votes in the last 5 minutes</span>
-        <!-- Duplicated for seamless scrolling -->
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Sarah from UK just voted for Social App</span>
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">🏆 Alex unlocked the Founder Badge</span>
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Juan from ES voted for Strategy Game</span>
-        <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700; color: var(--brand-light);">🔥 14 new votes in the last 5 minutes</span>
-      </div>
-    </div>
   </section>
+
+  <!-- Live Recent Activity Ticker (Moved outside container for responsive full width) -->
+  <div class="recent-activity-ticker" style="overflow: hidden; white-space: nowrap; width: 100vw; position: relative; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.8rem 0; background: rgba(0,0,0,0.4); box-shadow: 0 -5px 20px rgba(0,0,0,0.5);">
+    <div class="ticker-content">
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Sarah from UK just voted for Social App</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">🏆 Alex unlocked the Founder Badge</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Juan from ES voted for Strategy Game</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700; color: var(--brand-light);">🔥 14 new votes in the last 5 minutes</span>
+      <!-- Duplicated for seamless scrolling -->
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Sarah from UK just voted for Social App</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">🏆 Alex unlocked the Founder Badge</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Juan from ES voted for Strategy Game</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700; color: var(--brand-light);">🔥 14 new votes in the last 5 minutes</span>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer-section">
@@ -421,18 +421,18 @@
         setTimeout(() => formDynamicIcon.classList.add('visible'), 50);
       }
 
-      // Theme Shifting
+      // Theme Shifting with solid color layer to preserve background image
       if(val === 'Strategy Game') {
-        themeOverlay.style.background = 'linear-gradient(rgba(230, 40, 78, 0.4), rgba(0,0,0,0.8))';
+        themeOverlay.style.backgroundColor = 'rgba(230, 40, 78, 0.4)';
         themeOverlay.style.opacity = '1';
       } else if(val === 'Social App') {
-        themeOverlay.style.background = 'linear-gradient(rgba(40, 230, 180, 0.4), rgba(0,0,0,0.8))';
+        themeOverlay.style.backgroundColor = 'rgba(40, 230, 180, 0.4)';
         themeOverlay.style.opacity = '1';
       } else if(val === 'Content Platform') {
-        themeOverlay.style.background = 'linear-gradient(rgba(230, 180, 40, 0.4), rgba(0,0,0,0.8))';
+        themeOverlay.style.backgroundColor = 'rgba(230, 180, 40, 0.4)';
         themeOverlay.style.opacity = '1';
       } else if(val === 'Wildcard') {
-        themeOverlay.style.background = 'linear-gradient(rgba(150, 40, 230, 0.4), rgba(0,0,0,0.8))';
+        themeOverlay.style.backgroundColor = 'rgba(150, 40, 230, 0.4)';
         themeOverlay.style.opacity = '1';
       } else {
         themeOverlay.style.opacity = '0';
