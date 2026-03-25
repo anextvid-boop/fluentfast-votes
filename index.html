@@ -12,9 +12,11 @@
   
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-  <link rel="stylesheet" crossorigin href="/fluentfast-votes/assets/index-DkkCvzjV.css">
+  <link rel="stylesheet" crossorigin href="/fluentfast-votes/assets/index-D9r-5Nm5.css">
 </head>
 <body>
+  <!-- Theme Overlay for Dynamic Shifting -->
+  <div id="themeOverlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0; transition: background-color 1s ease, opacity 1s ease;"></div>
 
   <!-- HERO SECTION -->
   <main class="alt-layout" style="margin-top: 2rem;">
@@ -105,6 +107,12 @@
       <img src="/fluentfast-votes/assets/koala_parachute-DzXErO1W.png" alt="Koala Parachute" style="width: 200px; margin-bottom: 1rem; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); animation: floating 4s ease-in-out infinite;">
       
       <h2 class="section-title gradient-text reveal">Cast Your Vote</h2>
+      
+      <!-- Live Countdown Timer -->
+      <div id="countdownTimer" class="reveal reveal-delay-1" style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 1rem; background: rgba(0,0,0,0.5); padding: 0.5rem 1.5rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1);">
+        Voting locks in: <span id="days" style="color: var(--brand-light);">04</span>d : <span id="hours" style="color: var(--brand-light);">12</span>h : <span id="mins" style="color: var(--brand-light);">30</span>m : <span id="secs" style="color: var(--brand-light);">00</span>s
+      </div>
+
       <p class="subtitle-text reveal reveal-delay-1" style="margin-bottom: 3rem;">
         Expand the ideas below and see what's on our roadmap. Tap to select the feature you want us to prioritize next.
       </p>
@@ -115,8 +123,13 @@
           <summary class="vote-summary">1. The Strategy Game</summary>
           <div class="vote-content">
             <p><strong>How it works:</strong> Use voice recognition to cast spells or deploy units by speaking correct phrases under time pressure. An addictive deck-building adventure that fundamentally tests and upgrades your fluency as you battle through levels. Perfect for competitive players.</p>
+            
+            <div class="media-preview" style="background: rgba(0,0,0,0.4); border-radius: 12px; margin: 1.5rem 0; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 120px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;">
+              <span style="font-size: 0.8rem; font-weight: 800; color: var(--brand-light); letter-spacing: 1px;">▶ PLAY PROTOTYPE PREVIEW</span>
+            </div>
+
             <div class="vote-stats">
-              <div class="stat-header"><span>Current Standings</span> <span class="stat-percent">38%</span></div>
+              <div class="stat-header"><span>Current Standings</span> <span><span class="live-count" data-target="1842">1842</span> Votes (<span class="stat-percent">38%</span>)</span></div>
               <div class="vote-progress-container"><div class="vote-progress-bar" style="width: 0%;"></div></div>
             </div>
           </div>
@@ -126,8 +139,13 @@
           <summary class="vote-summary">2. Social App Format</summary>
           <div class="vote-content">
             <p><strong>How it works:</strong> Swipe and instantly connect with native speakers in a 60-second language-roulette format. A TikTok-style infinite feed built specifically for peer-to-peer language exchange. Scroll, practice pronunciation, and learn in micro-bursts.</p>
+            
+            <div class="media-preview" style="background: rgba(0,0,0,0.4); border-radius: 12px; margin: 1.5rem 0; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 120px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;">
+              <span style="font-size: 0.8rem; font-weight: 800; color: var(--brand-light); letter-spacing: 1px;">▶ PLAY PROTOTYPE PREVIEW</span>
+            </div>
+
             <div class="vote-stats">
-              <div class="stat-header"><span>Current Standings</span> <span class="stat-percent">42%</span></div>
+              <div class="stat-header"><span>Current Standings</span> <span><span class="live-count" data-target="2036">2036</span> Votes (<span class="stat-percent">42%</span>)</span></div>
               <div class="vote-progress-container"><div class="vote-progress-bar" style="width: 0%;"></div></div>
             </div>
           </div>
@@ -138,7 +156,7 @@
           <div class="vote-content">
             <p><strong>How it works:</strong> Netflix & Spotify integration directly into your learning flow. Dive deep into native media with transcribed podcasts, translated movies, and interactive articles designed to immerse you directly in the target culture.</p>
             <div class="vote-stats">
-              <div class="stat-header"><span>Current Standings</span> <span class="stat-percent">15%</span></div>
+              <div class="stat-header"><span>Current Standings</span> <span><span class="live-count" data-target="727">727</span> Votes (<span class="stat-percent">15%</span>)</span></div>
               <div class="vote-progress-container"><div class="vote-progress-bar" style="width: 0%;"></div></div>
             </div>
           </div>
@@ -148,8 +166,21 @@
           <summary class="vote-summary">4. Wildcard Idea</summary>
           <div class="vote-content">
             <p><strong>How it works:</strong> Have an entirely different vision for how we should teach languages? Maybe an AR mode or a specialized vocabulary engine? Drop it in the comments below. We read everything.</p>
-            <div class="vote-stats">
-              <div class="stat-header"><span>Current Standings</span> <span class="stat-percent">5%</span></div>
+            
+            <div class="wildcard-board" style="margin-top: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 1rem;">
+              <div style="font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; color: var(--brand-light); text-transform: uppercase;">Top Community Ideas:</div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 0.5rem; border: 1px solid rgba(255,255,255,0.05);">
+                <span style="font-size: 0.95rem;">AR Vocab Exploration Mode</span>
+                <button class="upvote-btn haptic-target" style="background: none; border: 1px solid var(--brand-light); color: var(--brand-light); padding: 0.3rem 0.6rem; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s;">⬆ 142</button>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                <span style="font-size: 0.95rem;">Live AI Turing Test</span>
+                <button class="upvote-btn haptic-target" style="background: none; border: 1px solid var(--brand-light); color: var(--brand-light); padding: 0.3rem 0.6rem; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s;">⬆ 89</button>
+              </div>
+            </div>
+
+            <div class="vote-stats" style="margin-top: 1.5rem;">
+              <div class="stat-header"><span>Current Standings</span> <span><span class="live-count" data-target="242">242</span> Votes (<span class="stat-percent">5%</span>)</span></div>
               <div class="vote-progress-container"><div class="vote-progress-bar" style="width: 0%;"></div></div>
             </div>
           </div>
@@ -190,6 +221,18 @@
           Make this an anonymous vote!
         </label>
 
+        <!-- Social Login Buttons -->
+        <div class="social-login-group" style="display: flex; flex-wrap: wrap; width: 100%; gap: 1rem; margin-bottom: 2rem; justify-content: center;">
+          <button type="button" class="sso-btn haptic-target" style="flex: 1; min-width: 140px; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+            <svg style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="currentColor" d="M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.27 12.19,19.27C8.36,19.27 5,16.25 5,12C5,7.9 8.2,4.73 12.2,4.73C15.29,4.73 17.1,6.7 17.1,6.7L19,4.72C19,4.72 16.56,2 12.1,2C6.42,2 2.03,6.8 2.03,12C2.03,17.05 6.36,22 12.22,22C17,22 21.52,18.33 21.52,12.27C21.52,11.37 21.35,11.1 21.35,11.1Z" /></svg> Google
+          </button>
+          <button type="button" class="sso-btn haptic-target" style="flex: 1; min-width: 140px; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+            <svg style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/></svg> Facebook
+          </button>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.5); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Or use email</div>
+
         <div id="voterDetailsGroup">
           <div class="form-group">
             <label for="firstName">First Name</label>
@@ -208,8 +251,40 @@
 
         <button type="submit" class="btn-primary haptic-target" id="voteSubmitBtn" style="width: 100%; margin-top: 1rem;">CONFIRM MY VOTE</button>
       </form>
+
+      <!-- Post-Vote Success Card (Hidden initially) -->
+      <div id="successCard" style="display: none; text-align: center; padding: 2rem 0; animation: fadeIn 0.5s;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+        <h3 class="section-title gradient-text" style="font-size: 2.2rem; margin-bottom: 0.5rem;">Vote Locked In!</h3>
+        <p class="subtitle-text" style="margin: 0 auto 2rem; color: #fff;">You've secured early Alpha access and a Founder's Badge.</p>
+        
+        <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--brand-light); margin-bottom: 2rem;">
+          <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">I just voted for <span id="votedFeatureName" style="color: var(--brand-light); text-transform: uppercase;">...</span></p>
+          <p style="font-size: 0.9rem; opacity: 0.7;">Join the community and help shape FluentFast! 🚀</p>
+        </div>
+        
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="btn-primary haptic-target" style="padding: 1rem 2rem; font-size: 1rem; background: #1DA1F2; border-color: #1DA1F2;">Share on X</button>
+          <button class="btn-primary haptic-target" style="padding: 1rem 2rem; font-size: 1rem; background: #25D366; border-color: #25D366;">WhatsApp</button>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Live Recent Activity Ticker (Moved outside container for responsive full width) -->
+  <div class="recent-activity-ticker" style="overflow: hidden; white-space: nowrap; width: 100vw; position: relative; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.8rem 0; background: rgba(0,0,0,0.4); box-shadow: 0 -5px 20px rgba(0,0,0,0.5);">
+    <div class="ticker-content">
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Sarah from UK just voted for Social App</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">🏆 Alex unlocked the Founder Badge</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Juan from ES voted for Strategy Game</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700; color: var(--brand-light);">🔥 14 new votes in the last 5 minutes</span>
+      <!-- Duplicated for seamless scrolling -->
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Sarah from UK just voted for Social App</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">🏆 Alex unlocked the Founder Badge</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700;">⚡️ Juan from ES voted for Strategy Game</span>
+      <span style="margin-right: 3rem; font-size: 0.95rem; font-weight: 700; color: var(--brand-light);">🔥 14 new votes in the last 5 minutes</span>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer-section">
@@ -317,30 +392,49 @@
         if (navigator.vibrate) navigator.vibrate([20, 100, 30]);
 
         setTimeout(() => {
-          alert("Vote successfully cast! We'll stay in touch.");
-          submitBtn.disabled = false;
-          submitBtn.innerText = originalText;
-          submitBtn.style.backgroundColor = '';
-          submitBtn.style.color = '';
-          voteForm.reset();
-          voterDetails.style.opacity = '1';
-          voterDetails.style.pointerEvents = 'auto';
-          requiredInputs.forEach(input => input.setAttribute('required', 'required'));
-        }, 1500);
+          // Hide form, show success card
+          voteForm.style.display = 'none';
+          document.getElementById('successCard').style.display = 'block';
+          
+          const selectedVal = voteSelection.options[voteSelection.selectedIndex].text;
+          document.getElementById('votedFeatureName').innerText = selectedVal !== 'Select an option...' ? selectedVal : 'FluentFast';
+          
+          // Confetti or visual pop could go here
+        }, 1200);
       }, 1500);
     });
 
-    /* ========== DYNAMIC FORM ICONS ========== */
+    /* ========== DYNAMIC FORM ICONS & THEME SHIFTING ========== */
     const voteSelection = document.getElementById('voteSelection');
     const formDynamicIcon = document.getElementById('formDynamicIcon');
+    const themeOverlay = document.getElementById('themeOverlay');
 
     voteSelection.addEventListener('change', function() {
       const selectedOption = this.options[this.selectedIndex];
       const icon = selectedOption.getAttribute('data-icon');
+      const val = this.value;
+
       if(icon) {
         formDynamicIcon.textContent = icon;
         formDynamicIcon.classList.remove('visible');
         setTimeout(() => formDynamicIcon.classList.add('visible'), 50);
+      }
+
+      // Theme Shifting with solid color layer to preserve background image
+      if(val === 'Strategy Game') {
+        themeOverlay.style.backgroundColor = 'rgba(230, 40, 78, 0.4)';
+        themeOverlay.style.opacity = '1';
+      } else if(val === 'Social App') {
+        themeOverlay.style.backgroundColor = 'rgba(40, 230, 180, 0.4)';
+        themeOverlay.style.opacity = '1';
+      } else if(val === 'Content Platform') {
+        themeOverlay.style.backgroundColor = 'rgba(230, 180, 40, 0.4)';
+        themeOverlay.style.opacity = '1';
+      } else if(val === 'Wildcard') {
+        themeOverlay.style.backgroundColor = 'rgba(150, 40, 230, 0.4)';
+        themeOverlay.style.opacity = '1';
+      } else {
+        themeOverlay.style.opacity = '0';
       }
     });
 
@@ -381,6 +475,44 @@
     }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ========== LIVE COUNTDOWN TIMER ========== */
+    function updateCountdown() {
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 4); // Always 4 days from now for demo
+      // In a real app, this would be a fixed date
+      
+      let days = 4;
+      let hours = 12;
+      let mins = 30;
+      let secs = parseInt(document.getElementById('secs').innerText);
+
+      setInterval(() => {
+        secs--;
+        if(secs < 0) { secs = 59; mins--; }
+        if(mins < 0) { mins = 59; hours--; }
+        
+        document.getElementById('secs').innerText = secs < 10 ? '0'+secs : secs;
+        document.getElementById('mins').innerText = mins < 10 ? '0'+mins : mins;
+        document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
+      }, 1000);
+    }
+    updateCountdown();
+
+    /* ========== SIMULATED LIVE STATS ========== */
+    // Add random increments to vote counts to simulate live activity
+    setInterval(() => {
+      const liveCounts = document.querySelectorAll('.live-count');
+      liveCounts.forEach(counter => {
+        if(Math.random() > 0.7) { // 30% chance to increment
+          let current = parseInt(counter.innerText);
+          current += Math.floor(Math.random() * 3) + 1;
+          counter.innerText = current;
+          counter.style.color = '#fff';
+          setTimeout(() => { counter.style.color = 'var(--brand-light)'; }, 500);
+        }
+      });
+    }, 3000);
 
   </script>
 </body>
