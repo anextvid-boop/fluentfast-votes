@@ -20,7 +20,8 @@
   <main class="alt-layout">
     <div class="hero-split">
       
-      <div class="hero-text-block reveal">
+      <div class="hero-text-block">
+
         <div style="font-family: var(--font-display); text-transform: uppercase; letter-spacing: 5px; color: var(--brand-light); font-weight: 900; font-size: 1rem; margin-bottom: 1.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); display: inline-block; padding: 0.6rem 2rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(157, 155, 255, 0.3); border-radius: 50px; box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.05); backdrop-filter: blur(10px); position: relative; overflow: hidden;" class="gradient-text shiny-badge">
           VOTE FOR UPDATES
         </div>
@@ -142,13 +143,14 @@
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.15
+      threshold: 0.01
     };
     
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -156,6 +158,15 @@
     document.querySelectorAll('.reveal').forEach(el => {
       revealObserver.observe(el);
     });
+
+    // BULLETPROOF FALLBACK: After 1.2 seconds, force-reveal everything
+    // so no user is ever left with a blank screen.
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.classList.add('active');
+      });
+    }, 1200);
+
 
     /* ========== SCROLL LIGHT ANIMATION ========== */
     window.addEventListener('scroll', () => {
